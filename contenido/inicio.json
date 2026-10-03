@@ -1,0 +1,235 @@
+{
+  "seo": {
+    "titulo": "Aura Spa & Wellness",
+    "descripcion": "Masaje terapéutico, faciales y rituales corporales en Ciudad Satélite, Naucalpan."
+  },
+  "bloques": [
+    {
+      "tipo": "portada",
+      "imagen": "/imagenes/salon-header-image.webp",
+      "titulo": "Este es el demo de un SPA imaginario.",
+      "texto": "Doce años de manos expertas en el corazón de Ciudad Satélite. Un espacio con puerta, silencio y el tiempo que hace falta.",
+      "boton": {
+        "texto": "Reservar una cita →",
+        "enlace": "#reservaciones"
+      },
+      "ancla": "inicio"
+    },
+    {
+      "tipo": "servicios",
+      "rotulo": "Lo que hacemos",
+      "titulo": "Tratamientos que sí se notan",
+      "texto": "Masaje terapéutico, faciales y rituales corporales. Cada sesión empieza con una pregunta: qué te trae hoy.",
+      "tarjetas": [
+        {
+          "icono": "cara",
+          "titulo": "Faciales",
+          "texto": "Limpieza profunda, hidratación y activos naturales. Siempre con diagnóstico de piel antes de empezar."
+        },
+        {
+          "icono": "flor",
+          "titulo": "Masaje terapéutico",
+          "texto": "Descontractura, tejido profundo y relajación. Trabajamos sobre lo que tu cuerpo pide, no sobre un guion."
+        },
+        {
+          "icono": "corazon",
+          "titulo": "Paquetes",
+          "texto": "Combinaciones de varios tratamientos para cuando una sola sesión no alcanza."
+        },
+        {
+          "icono": "persona",
+          "titulo": "Rituales corporales",
+          "texto": "Exfoliación, envolturas y baños de vapor. Sesiones largas para desconectar de verdad."
+        }
+      ],
+      "ancla": "nosotros"
+    },
+    {
+      "tipo": "imagen_texto",
+      "imagen": "/imagenes/salon-beautiful-hair.webp",
+      "descripcion": "",
+      "imagen_derecha": false,
+      "rotulo": "Cómo empezamos",
+      "titulo": "De dos camillas prestadas a nueve personas",
+      "texto": "Abrimos en 2014 en un local de cuarenta metros con dos camillas prestadas. Isabella, nuestra fundadora, viene de fisioterapia deportiva, y esa formación marcó la casa: aquí el masaje no es un lujo decorativo, es trabajo sobre tejido con un objetivo claro.",
+      "ancla": ""
+    },
+    {
+      "tipo": "imagen_texto",
+      "imagen": "/imagenes/salon-img-4.webp",
+      "descripcion": "Alberca de hidroterapia",
+      "imagen_derecha": true,
+      "rotulo": "Cómo trabajamos",
+      "titulo": "Primero escuchamos, después tocamos",
+      "texto": "Cada primera visita empieza con diez minutos de conversación: qué duele, desde cuándo y qué esperas al salir. Con eso armamos la sesión. Si lo que necesitas no es un masaje, te lo decimos y te recomendamos a quien sí puede ayudarte.",
+      "ancla": ""
+    },
+    {
+      "tipo": "galeria",
+      "rotulo": "El espacio",
+      "titulo": "Cómo es por dentro",
+      "texto": "Cinco cabinas individuales y una de pareja, todas con aislamiento acústico. Regaderas, lockers y té al terminar.",
+      "fotos": [
+        {
+          "imagen": "/imagenes/salon-img-1.webp",
+          "pie": "Sala de descanso"
+        },
+        {
+          "imagen": "/imagenes/salon-img-2.webp",
+          "pie": "Piedras calientes"
+        },
+        {
+          "imagen": "/imagenes/salon-img-3.webp",
+          "pie": "Cabina de faciales"
+        },
+        {
+          "imagen": "/imagenes/salon-img-4.webp",
+          "pie": "Alberca de hidroterapia"
+        },
+        {
+          "imagen": "/imagenes/salon-img-5.webp",
+          "pie": "Terraza"
+        },
+        {
+          "imagen": "/imagenes/salon-img-6.webp",
+          "pie": "Cabina de pareja"
+        }
+      ],
+      "ancla": "espacio"
+    },
+    {
+      "tipo": "equipo",
+      "rotulo": "El equipo",
+      "titulo": "Quiénes te van a atender",
+      "texto": "Seis terapeutas y dos cosmetólogas, todos con cédula y entre cinco y dieciocho años de práctica.",
+      "personas": [
+        {
+          "foto": "/imagenes/hairdresser-2.webp",
+          "nombre": "Marcus",
+          "cargo": "Terapeuta titular",
+          "texto": "Dieciocho años de práctica y formación en masaje deportivo. Es a quien mandamos las contracturas que nadie pudo quitar."
+        },
+        {
+          "foto": "/imagenes/hairdresser-3.webp",
+          "nombre": "Isabella Chen",
+          "cargo": "Fundadora y directora",
+          "texto": "Fisioterapeuta deportiva de origen. Abrió Aura en 2014 y sigue atendiendo tres días por semana."
+        },
+        {
+          "foto": "/imagenes/hairdresser-1.webp",
+          "nombre": "Sophie Laurent",
+          "cargo": "Especialista en faciales",
+          "texto": "Formación en dermocosmética y actualización anual. Hace el diagnóstico de piel y arma el protocolo de cada facial."
+        }
+      ],
+      "ancla": "equipo"
+    },
+    {
+      "tipo": "testimonios",
+      "rotulo": "Testimonios",
+      "titulo": "Lo que dicen quienes vuelven",
+      "texto": "No los pedimos: los dejaron ellos.",
+      "citas": [
+        {
+          "cita": "“Llegué con una contractura de meses que ningún estiramiento me quitaba. Tres sesiones y volví a dormir de lado.”",
+          "nombre": "Mariana Torres",
+          "cargo": "Cliente desde 2024",
+          "foto": "/imagenes/salon-customer-1.webp"
+        },
+        {
+          "cita": "“Lo que más agradezco es que no te venden paquetes. Te dicen qué necesitas y cuándo ya no hace falta volver.”",
+          "nombre": "Daniel Ramírez",
+          "cargo": "Cliente desde 2023",
+          "foto": "/imagenes/salon-customer-2.webp"
+        },
+        {
+          "cita": "“Tengo piel reactiva y llevaba años sin atreverme a un facial. Sophie me hizo el diagnóstico y me explicó qué evitar. Cero reacción.”",
+          "nombre": "Alejandra Fuentes",
+          "cargo": "Cliente desde 2025",
+          "foto": "/imagenes/salon-customer-3.webp"
+        }
+      ],
+      "ancla": ""
+    },
+    {
+      "tipo": "precios",
+      "rotulo": "Paquetes",
+      "titulo": "Tres formas de empezar",
+      "texto": "Precios en pesos, impuestos incluidos. Sin membresías y sin amarres: vienes cuando lo necesitas.",
+      "planes": [
+        {
+          "nombre": "Esencial",
+          "destacado": false,
+          "insignia": "",
+          "descripcion": "Para una primera visita",
+          "precio": "$85",
+          "periodo": "por sesión",
+          "incluye": [
+            "Masaje relajante (60 min)",
+            "Baño de vapor",
+            "Aceites tibios",
+            "Té e infusión al terminar",
+            "Ritual de pies"
+          ],
+          "boton": {
+            "texto": "Reservar",
+            "enlace": "#reservaciones"
+          }
+        },
+        {
+          "nombre": "Completo",
+          "destacado": true,
+          "insignia": "El más pedido",
+          "descripcion": "El que más repiten",
+          "precio": "$180",
+          "periodo": "por sesión",
+          "incluye": [
+            "Tejido profundo (90 min)",
+            "Piedras calientes",
+            "Facial de hidratación",
+            "Exfoliación corporal",
+            "Kit para casa"
+          ],
+          "boton": {
+            "texto": "Reservar",
+            "enlace": "#reservaciones"
+          }
+        },
+        {
+          "nombre": "Retiro Aura",
+          "destacado": false,
+          "insignia": "",
+          "descripcion": "Media jornada completa",
+          "precio": "$320",
+          "periodo": "por sesión",
+          "incluye": [
+            "Todo lo del paquete Completo",
+            "Acceso a cabina de pareja",
+            "Envoltura corporal",
+            "Baño de hidroterapia",
+            "Set de producto para llevar"
+          ],
+          "boton": {
+            "texto": "Reservar",
+            "enlace": "#reservaciones"
+          }
+        }
+      ],
+      "ancla": "precios"
+    },
+    {
+      "tipo": "reservaciones",
+      "titulo": "Reserva tu espacio",
+      "texto": "Abrimos de martes a domingo. Los sábados se llenan con dos semanas de anticipación, así que conviene apartar.",
+      "rotulo_direccion": "Dónde estamos",
+      "rotulo_telefono": "Teléfono",
+      "rotulo_correo": "Correo",
+      "rotulo_horarios": "Horarios",
+      "horarios": "Martes a viernes 10:00 a 20:00\nSábado 9:00 a 19:00 · Domingo 10:00 a 16:00",
+      "tarjeta_titulo": "Pide tu cita",
+      "tarjeta_texto": "Escríbenos por WhatsApp al 55 1234 5678 y cuéntanos qué te pasa. Karla lleva la agenda desde 2017 y suele responder en menos de una hora.",
+      "tarjeta_boton": "Reservar",
+      "ancla": "reservaciones"
+    }
+  ]
+}

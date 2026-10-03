@@ -1,0 +1,7 @@
+/* ---------- 11. El equipo ---------- */
+.persona{grid-column:var(--c-card);text-align:center}
+.persona__foto{container-type:inline-size}
+.persona__foto img{width:100%;height:round(down, 127cqw, 8px);object-fit:cover;border-radius:8px}
+.persona h3{margin:24px 0 8px}
+.persona .t-cargo{margin-bottom:8px}
+

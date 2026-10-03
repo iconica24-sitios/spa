@@ -1,0 +1,64 @@
+{
+  "label": "Galería de fotos",
+  "name": "galeria",
+  "widget": "object",
+  "summary": "Galería — {{fields.titulo}}",
+  "fields": [
+    {
+      "label": "Rótulo",
+      "name": "rotulo",
+      "widget": "string",
+      "default": "El espacio",
+      "required": false
+    },
+    {
+      "label": "Título",
+      "name": "titulo",
+      "widget": "string",
+      "default": "Cómo es por dentro"
+    },
+    {
+      "label": "Texto",
+      "name": "texto",
+      "widget": "text",
+      "default": "Una línea sobre el lugar.",
+      "required": false
+    },
+    {
+      "label": "Fotos",
+      "name": "fotos",
+      "widget": "list",
+      "label_singular": "foto",
+      "summary": "{{fields.pie}}",
+      "hint": "En computadora se ven de tres en tres y en celular de dos en dos: con 6 o 12 fotos no quedan huecos.",
+      "default": [],
+      "fields": [
+        {
+          "label": "Foto",
+          "name": "imagen",
+          "widget": "image",
+          "required": true,
+          "hint": "Vertical o cuadrada."
+        },
+        {
+          "label": "Pie de foto",
+          "name": "pie",
+          "widget": "string",
+          "default": ""
+        }
+      ]
+    },
+    {
+      "label": "Ancla para el menú",
+      "name": "ancla",
+      "widget": "string",
+      "default": "espacio",
+      "required": false,
+      "hint": "Sin espacios (p. ej. equipo): el menú la enlaza como #equipo. Vacío = sin ancla.",
+      "pattern": [
+        "^[a-z0-9-]*$",
+        "Sólo minúsculas, números y guiones"
+      ]
+    }
+  ]
+}

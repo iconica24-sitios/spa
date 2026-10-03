@@ -1,0 +1,140 @@
+{
+  "label": "Paquetes y precios",
+  "name": "precios",
+  "widget": "object",
+  "summary": "Paquetes — {{fields.titulo}}",
+  "fields": [
+    {
+      "label": "Rótulo",
+      "name": "rotulo",
+      "widget": "string",
+      "default": "Paquetes",
+      "required": false
+    },
+    {
+      "label": "Título",
+      "name": "titulo",
+      "widget": "string",
+      "default": "Tres formas de empezar"
+    },
+    {
+      "label": "Texto",
+      "name": "texto",
+      "widget": "text",
+      "default": "Precios en pesos, impuestos incluidos.",
+      "required": false
+    },
+    {
+      "label": "Paquetes",
+      "name": "planes",
+      "widget": "list",
+      "label_singular": "paquete",
+      "summary": "{{fields.nombre}} — {{fields.precio}}",
+      "hint": "Se ven mejor de 3 en 3.",
+      "default": [
+        {
+          "nombre": "Esencial",
+          "destacado": false,
+          "insignia": "",
+          "descripcion": "Para una primera visita",
+          "precio": "$850",
+          "periodo": "por sesión",
+          "incluye": [
+            "Primer punto",
+            "Segundo punto"
+          ],
+          "boton": {
+            "texto": "Reservar",
+            "enlace": "#reservaciones"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "label": "Nombre",
+          "name": "nombre",
+          "widget": "string",
+          "default": ""
+        },
+        {
+          "label": "Destacado (tarjeta oscura)",
+          "name": "destacado",
+          "widget": "boolean",
+          "default": false
+        },
+        {
+          "label": "Etiqueta",
+          "name": "insignia",
+          "widget": "string",
+          "default": "",
+          "required": false,
+          "hint": "Ej. El más pedido. Vacío = sin etiqueta."
+        },
+        {
+          "label": "Descripción",
+          "name": "descripcion",
+          "widget": "string",
+          "default": ""
+        },
+        {
+          "label": "Precio",
+          "name": "precio",
+          "widget": "string",
+          "default": "",
+          "hint": "Ej. $850"
+        },
+        {
+          "label": "Unidad",
+          "name": "periodo",
+          "widget": "string",
+          "default": "por sesión",
+          "required": false
+        },
+        {
+          "label": "Qué incluye",
+          "name": "incluye",
+          "widget": "list",
+          "field": {
+            "label": "Punto",
+            "name": "punto",
+            "widget": "string"
+          }
+        },
+        {
+          "label": "Botón",
+          "name": "boton",
+          "widget": "object",
+          "collapsed": true,
+          "fields": [
+            {
+              "label": "Texto",
+              "name": "texto",
+              "widget": "string",
+              "default": "Reservar"
+            },
+            {
+              "label": "Enlace",
+              "name": "enlace",
+              "widget": "string",
+              "default": "#reservaciones",
+              "required": false,
+              "hint": "#ancla de un bloque, /pagina o https://…"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Ancla para el menú",
+      "name": "ancla",
+      "widget": "string",
+      "default": "precios",
+      "required": false,
+      "hint": "Sin espacios (p. ej. equipo): el menú la enlaza como #equipo. Vacío = sin ancla.",
+      "pattern": [
+        "^[a-z0-9-]*$",
+        "Sólo minúsculas, números y guiones"
+      ]
+    }
+  ]
+}

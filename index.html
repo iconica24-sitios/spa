@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-cms="seo.titulo">Aura Spa &amp; Wellness</title>
+<meta name="description" data-cms-content="seo.descripcion" content="">
+<link rel="preload" href="tipografias/OpenSans-VariableFont_wdth_wght.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="tipografias/CormorantGaramond-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/bloques.css">
+<script src="js/main.js" defer></script>
+</head>
+<body>
+<!-- =========================================================================
+     Plantilla de bloques "Spa" de Icónica24
+     -------------------------------------------------------------------------
+     Molde de todas las páginas: cabecera, menú móvil y pie, y en medio los
+     bloques que el cliente elige y ordena desde el panel.
+     - Cabecera, menú, datos del negocio y pie: contenido/sitio.json.
+     - Bloques de la página: contenido/inicio.json → "bloques".
+     - Cada bloque vive en bloques/<tipo>/ (HTML, campos del panel, estilos).
+     ========================================================================= -->
+<div class="pagina" style="" data-cms-style="--acento:{sitio.marca.acento}">
+
+<header class="cabecera">
+  <div class="contenedor cabecera__fila">
+    <p class="cabecera__sitio t t-sitio serif"><a href="/#inicio" data-cms="sitio.nombre">Aura Spa &amp; Wellness</a></p>
+    <nav class="menu" aria-label="Menú principal" data-cms-list="sitio.menu">
+      <a class="t t-nav" href="#nosotros" data-cms-href=".url" data-cms=".texto" data-cms-item>Nosotros</a>
+    </nav>
+    <div class="cabecera__acciones">
+      <a class="boton boton--cabecera" href="#reservaciones" data-cms-href="sitio.boton.url" data-cms-if="sitio.boton.texto"><span data-cms="sitio.boton.texto">Reservar</span></a>
+      <button class="hamburguesa" type="button" aria-label="Abrir el menú" aria-controls="menu-movil" aria-expanded="false"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 7.5h16v1.5H4z"/><path d="M4 15h16v1.5H4z"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="menu-movil" id="menu-movil" hidden>
+  <div class="menu-movil__velo" data-cerrar></div>
+  <nav class="menu-movil__panel" aria-label="Menú">
+    <div class="menu-movil__fila">
+      <p class="t t-rotulo sin-ajuste">Menú</p>
+      <button class="menu-movil__cerrar" type="button" aria-label="Cerrar el menú"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="m13.06 12 6.47-6.47-1.06-1.06L12 10.94 5.53 4.47 4.47 5.53 10.94 12l-6.47 6.47 1.06 1.06L12 13.06l6.47 6.47 1.06-1.06L13.06 12Z"/></svg></button>
+    </div>
+    <ol class="menu-movil__lista" data-cms-list="sitio.menu">
+      <li data-cms-item><a href="#nosotros" data-cms-href=".url"><span class="menu-movil__num" data-cms-index>01</span><span class="menu-movil__nombre serif" data-cms=".texto">Nosotros</span></a></li>
+    </ol>
+    <div class="menu-movil__pie">
+      <a class="boton boton--reserva" href="#reservaciones" data-cms-href="sitio.boton.url" data-cms-if="sitio.boton.texto_movil"><span data-cms="sitio.boton.texto_movil">Reservar una cita</span></a>
+      <p class="t t-cuerpo gris"><a href="tel:+525512345678" data-cms-href="tel:+52{sitio.negocio.telefono|digitos}" data-cms="sitio.negocio.telefono">55 1234 5678</a><br><span data-cms="sitio.negocio.dias">Martes a domingo · Lunes cerrado</span></p>
+    </div>
+  </nav>
+</div>
+
+<main data-cms-bloques="bloques"></main>
+
+<footer class="pie">
+  <div class="pie__interior">
+    <div class="pie__columnas">
+      <div class="pie__col pie__col--marca">
+        <h3 class="pie__marca" data-cms="sitio.nombre">Aura Spa &amp; Wellness</h3>
+        <p data-cms="sitio.pie.direccion">Circuito Novelistas 112, interior 4</p>
+        <p><span data-cms="sitio.negocio.telefono">55 1234 5678</span><br><span data-cms="sitio.negocio.correo">hola@auraspa.mx</span></p>
+      </div>
+      <div class="pie__col">
+        <h3 class="pie__titulo" data-cms="sitio.pie.titulo_horarios">Horarios</h3>
+        <p class="pie__lista" data-cms="sitio.pie.horarios">Martes a viernes · 10:00 a 20:00</p>
+      </div>
+      <div class="pie__col">
+        <h3 class="pie__titulo" data-cms="sitio.pie.titulo_explora">Explora</h3>
+        <p class="pie__lista" data-cms-list="sitio.menu"><span data-cms-item><a href="#nosotros" data-cms-href=".url" data-cms=".texto">Nosotros</a><br></span></p>
+      </div>
+    </div>
+    <div class="pie__pleca"></div>
+    <p class="pie__legal" data-cms="sitio.pie.legal">© 2026 Aura Spa &amp; Wellness</p>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

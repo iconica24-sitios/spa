@@ -1,0 +1,21 @@
+/* ---------- 8. Lo que hacemos (servicios) ---------- */
+.servicio{grid-column:var(--c-svc);text-align:center;position:relative}
+.servicio__icono{height:56px;display:flex;align-items:center;justify-content:center;color:var(--acento)}
+.servicio__icono .icono{width:52px;height:52px;display:block}
+.servicio h3{margin:16px 0 8px}
+.servicio::before,.servicio::after{content:"";position:absolute;background:var(--pleca);pointer-events:none;display:none}
+.servicio::before{left:calc(var(--gut) / -2);top:0;bottom:0;width:1px}
+.servicio::after{left:0;right:0;top:-24px;height:1px}
+.servicio + .servicio::after{display:block}
+@media (min-width:600px) and (max-width:1023.98px){
+  .servicio + .servicio::after{display:none}
+  .servicio:nth-of-type(2)::before{display:block;bottom:-24px}
+  .servicio:nth-of-type(4)::before{display:block;top:-24px}
+  .servicio:nth-of-type(3)::after{display:block;right:calc(var(--gut) / -2)}
+  .servicio:nth-of-type(4)::after{display:block;left:calc(var(--gut) / -2)}
+}
+@media (min-width:1024px){
+  .servicio + .servicio::after{display:none}
+  .servicio + .servicio::before{display:block}
+}
+

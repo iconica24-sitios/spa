@@ -1,0 +1,11 @@
+/* ---------- 9. Cómo empezamos ---------- */
+.historia{background:#F8F6F4;container-type:inline-size}
+.historia__reticula{display:grid;grid-template-columns:var(--ab-cols);column-gap:0;align-items:stretch}
+.historia__imagen{position:relative;min-width:0;min-height:var(--ab-img-h);overflow:hidden}
+.historia__imagen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* Caja de texto con margen recíproco, proporcional a la tipografía */
+.historia__texto{padding:var(--ab-in);display:flex;flex-direction:column;justify-content:space-between;gap:var(--h3-l)}
+.historia--espejo .historia__imagen{order:var(--ab-ord)}
+.historia__cuerpo h2{margin:0 0 var(--h3-l)}
+
+

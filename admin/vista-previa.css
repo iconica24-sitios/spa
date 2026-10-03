@@ -1,0 +1,7 @@
+/* Sólo para la vista previa del panel. Ahí no corre JavaScript y el panel es
+   angosto: la cabecera se queda arriba (no fija), con su fondo oscuro, y el
+   menú se muestra en línea para ver lo que se edita en Sitio → Menú. */
+.cabecera { position: relative; background: #1a1a1a; }
+.menu { display: flex !important; flex-wrap: wrap; gap: 8px 20px; }
+.hamburguesa, .menu-movil { display: none !important; }
+.heroe__contenido { padding-top: var(--hero-t); }

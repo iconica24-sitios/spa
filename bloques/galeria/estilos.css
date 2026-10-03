@@ -1,0 +1,5 @@
+/* ---------- 10. El espacio (galería) ---------- */
+.foto{grid-column:var(--c-gal);position:relative;container-type:inline-size;border-radius:8px;overflow:hidden}
+.foto img{width:100%;height:round(down, 128cqw, 8px);object-fit:cover}
+.foto figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px;background:linear-gradient(0deg,rgba(0,0,0,.4),transparent);color:#fff;text-align:center;text-shadow:0 0 1.5px #000}
+

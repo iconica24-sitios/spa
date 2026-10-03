@@ -1,0 +1,9 @@
+/* ---------- 12. Testimonios ---------- */
+.fondo-oscuro .t-h2{color:#fff}
+.fondo-oscuro .intro .t-ld{color:#ffffffb3}
+.testimonio{grid-column:var(--c-card);padding:32px;border-radius:8px;box-shadow:inset 0 0 0 1px #ffffff1a}
+.estrellas{color:var(--estrella)}
+.testimonio__cita{margin:16px 0 32px;color:#ffffffe6}
+.testimonio__autor{display:flex;gap:16px;align-items:center;color:#fff}
+.testimonio__autor img{width:48px;height:48px;border-radius:50%;object-fit:contain;flex:none}
+

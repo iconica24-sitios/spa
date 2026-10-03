@@ -1,0 +1,68 @@
+{
+  "label": "Portada (foto a sangre)",
+  "name": "portada",
+  "widget": "object",
+  "summary": "Portada — {{fields.titulo}}",
+  "fields": [
+    {
+      "label": "Foto de fondo",
+      "name": "imagen",
+      "widget": "image",
+      "required": false,
+      "hint": "Horizontal, 1920 px de ancho o más. Se oscurece para que el texto se lea."
+    },
+    {
+      "label": "Título",
+      "name": "titulo",
+      "widget": "string",
+      "default": "Un título que invite a quedarse.",
+      "pattern": [
+        "^.{1,80}$",
+        "Máximo 80 caracteres"
+      ]
+    },
+    {
+      "label": "Texto",
+      "name": "texto",
+      "widget": "text",
+      "default": "Una o dos frases sobre lo que hace distinto al lugar.",
+      "required": false
+    },
+    {
+      "label": "Botón",
+      "name": "boton",
+      "widget": "object",
+      "collapsed": true,
+      "fields": [
+        {
+          "label": "Texto",
+          "name": "texto",
+          "widget": "string",
+          "default": "Reservar una cita →",
+          "required": false,
+          "hint": "Vacío = sin botón"
+        },
+        {
+          "label": "Enlace",
+          "name": "enlace",
+          "widget": "string",
+          "default": "#reservaciones",
+          "required": false,
+          "hint": "#ancla de un bloque, /pagina o https://…"
+        }
+      ]
+    },
+    {
+      "label": "Ancla para el menú",
+      "name": "ancla",
+      "widget": "string",
+      "default": "inicio",
+      "required": false,
+      "hint": "Sin espacios (p. ej. equipo): el menú la enlaza como #equipo. Vacío = sin ancla.",
+      "pattern": [
+        "^[a-z0-9-]*$",
+        "Sólo minúsculas, números y guiones"
+      ]
+    }
+  ]
+}

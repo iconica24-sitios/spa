@@ -1,0 +1,84 @@
+{
+  "label": "Testimonios (fondo oscuro)",
+  "name": "testimonios",
+  "widget": "object",
+  "summary": "Testimonios — {{fields.titulo}}",
+  "fields": [
+    {
+      "label": "Rótulo",
+      "name": "rotulo",
+      "widget": "string",
+      "default": "Testimonios",
+      "required": false
+    },
+    {
+      "label": "Título",
+      "name": "titulo",
+      "widget": "string",
+      "default": "Lo que dicen quienes vuelven"
+    },
+    {
+      "label": "Texto",
+      "name": "texto",
+      "widget": "text",
+      "default": "",
+      "required": false
+    },
+    {
+      "label": "Testimonios",
+      "name": "citas",
+      "widget": "list",
+      "label_singular": "testimonio",
+      "summary": "{{fields.nombre}}",
+      "default": [
+        {
+          "cita": "“Una opinión breve y concreta.”",
+          "nombre": "Nombre Apellido",
+          "cargo": "Cliente desde 2024"
+        }
+      ],
+      "fields": [
+        {
+          "label": "Testimonio",
+          "name": "cita",
+          "widget": "text",
+          "default": "",
+          "hint": "Con comillas “ ”."
+        },
+        {
+          "label": "Nombre",
+          "name": "nombre",
+          "widget": "string",
+          "default": ""
+        },
+        {
+          "label": "Detalle",
+          "name": "cargo",
+          "widget": "string",
+          "default": "",
+          "required": false,
+          "hint": "Ej. Cliente desde 2024"
+        },
+        {
+          "label": "Foto o avatar",
+          "name": "foto",
+          "widget": "image",
+          "required": false,
+          "hint": "Cuadrada; se ve en círculo pequeño."
+        }
+      ]
+    },
+    {
+      "label": "Ancla para el menú",
+      "name": "ancla",
+      "widget": "string",
+      "default": "",
+      "required": false,
+      "hint": "Sin espacios (p. ej. equipo): el menú la enlaza como #equipo. Vacío = sin ancla.",
+      "pattern": [
+        "^[a-z0-9-]*$",
+        "Sólo minúsculas, números y guiones"
+      ]
+    }
+  ]
+}

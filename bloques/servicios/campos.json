@@ -1,0 +1,108 @@
+{
+  "label": "Servicios (con íconos)",
+  "name": "servicios",
+  "widget": "object",
+  "summary": "Servicios — {{fields.titulo}}",
+  "fields": [
+    {
+      "label": "Rótulo",
+      "name": "rotulo",
+      "widget": "string",
+      "default": "Lo que hacemos",
+      "required": false
+    },
+    {
+      "label": "Título",
+      "name": "titulo",
+      "widget": "string",
+      "default": "Tratamientos que sí se notan"
+    },
+    {
+      "label": "Texto",
+      "name": "texto",
+      "widget": "text",
+      "default": "Una línea sobre los servicios.",
+      "required": false
+    },
+    {
+      "label": "Servicios",
+      "name": "tarjetas",
+      "widget": "list",
+      "label_singular": "servicio",
+      "summary": "{{fields.titulo}}",
+      "hint": "Se ven mejor 4 (en computadora van en una fila; en tablet, de 2 en 2).",
+      "default": [
+        {
+          "icono": "cara",
+          "titulo": "Faciales",
+          "texto": "Descripción breve."
+        },
+        {
+          "icono": "flor",
+          "titulo": "Masajes",
+          "texto": "Descripción breve."
+        },
+        {
+          "icono": "corazon",
+          "titulo": "Paquetes",
+          "texto": "Descripción breve."
+        },
+        {
+          "icono": "persona",
+          "titulo": "Rituales",
+          "texto": "Descripción breve."
+        }
+      ],
+      "fields": [
+        {
+          "label": "Ícono",
+          "name": "icono",
+          "widget": "select",
+          "default": "flor",
+          "options": [
+            {
+              "label": "Rostro",
+              "value": "cara"
+            },
+            {
+              "label": "Flor de loto",
+              "value": "flor"
+            },
+            {
+              "label": "Corazón",
+              "value": "corazon"
+            },
+            {
+              "label": "Persona",
+              "value": "persona"
+            }
+          ]
+        },
+        {
+          "label": "Título",
+          "name": "titulo",
+          "widget": "string",
+          "default": ""
+        },
+        {
+          "label": "Texto",
+          "name": "texto",
+          "widget": "text",
+          "default": ""
+        }
+      ]
+    },
+    {
+      "label": "Ancla para el menú",
+      "name": "ancla",
+      "widget": "string",
+      "default": "nosotros",
+      "required": false,
+      "hint": "Sin espacios (p. ej. equipo): el menú la enlaza como #equipo. Vacío = sin ancla.",
+      "pattern": [
+        "^[a-z0-9-]*$",
+        "Sólo minúsculas, números y guiones"
+      ]
+    }
+  ]
+}

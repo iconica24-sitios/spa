@@ -1,0 +1,189 @@
+/* Plantilla "Spa" de Icónica24 — base: retícula, tipografía, botones,
+   cabecera, menú móvil y pie. Los estilos de cada bloque están en
+   bloques/<tipo>/estilos.css (el build los junta en css/bloques.css).
+   Aura Spa & Wellness — estilos
+   Retícula: línea base 8px · columnas 4 / 8 / 12 / 12 · medianil 16 / 24 · margen 24 / 40 / 64 / auto (1200px) */
+
+@font-face{font-family:"Open Sans";font-style:normal;font-weight:100 900;font-display:swap;src:url("../tipografias/OpenSans-VariableFont_wdth_wght.ttf") format("truetype")}
+@font-face{font-family:"Open Sans";font-style:italic;font-weight:100 900;font-display:swap;src:url("../tipografias/OpenSans-Italic-VariableFont_wdth_wght.ttf") format("truetype")}
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:300 700;font-display:swap;src:url("../tipografias/CormorantGaramond-VariableFont_wght.ttf") format("truetype")}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:300 700;font-display:swap;src:url("../tipografias/CormorantGaramond-Italic-VariableFont_wght.ttf") format("truetype")}
+
+/* ---------- 1. Variables de retícula por breakpoint ---------- */
+:root{
+  --acento:#D88A6D;--acento-hover:#b9775f;--oro:#d1ab7d;--estrella:#fcb900;--gris:#818181;--pleca:#EAE7DE;
+  --cols:4;--gut:16px;--mar:24px;--sec:64px;--hero-t:64px;--hero-b:64px;--hdr-p:16px;--intro-mb:48px;
+  --hdr-h:calc(48px + 2 * var(--hdr-p));
+  --h1-f:40px;--h1-l:48px;--h2-f:32px;--h2-l:40px;--h3-f:20px;--h3-l:24px;--pt-f:24px;--pt-l:32px;
+  --pr-f:40px;--pr-l:48px;--ld-f:16px;--ld-l:24px;--md-f:16px;--md-l:24px;--st-f:18px;
+  --c-hero-h:1/-1;--c-hero-p:1/-1;--c-svc:span 4;--c-gal:span 2;--c-card:1/-1;--c-book-l:1/-1;--c-book-r:1/-1;
+  --nav-d:none;--burger-d:flex;--hbtn-d:none;
+  --ab-cols:minmax(0,1fr);--ab-in:var(--h2-l);--ab-img-h:100cqw;--ab-ord:0;
+  --ft-dir:column;--ft-b1:auto;
+}
+@media (min-width:600px){:root{
+  --cols:8;--gut:24px;--mar:40px;--ab-cols:repeat(2, minmax(0,1fr));--ab-img-h:calc(100cqw / 2);--ab-ord:2;--sec:80px;--hero-t:80px;--hero-b:80px;--intro-mb:56px;
+  --h1-f:48px;--h1-l:56px;--h2-f:40px;--h2-l:48px;--h3-f:24px;--h3-l:32px;--pt-f:28px;
+  --pr-f:48px;--pr-l:48px;--ld-f:18px;--ld-l:32px;--md-f:18px;--md-l:24px;--st-f:20px;
+  --c-hero-p:2/8;--c-svc:span 4;--c-gal:span 4;--c-card:2/span 6;--hbtn-d:flex;
+}}
+@media (min-width:782px){:root{--ft-dir:row;--ft-b1:40%}}
+@media (min-width:1024px){:root{
+  --cols:12;--mar:64px;--sec:96px;--hero-t:120px;--hero-b:120px;--hdr-p:24px;--intro-mb:64px;
+  --h1-f:64px;--h1-l:72px;--h2-f:48px;--h2-l:56px;--pr-f:56px;--pr-l:56px;--md-f:20px;--md-l:32px;--st-f:24px;
+  --c-hero-h:3/11;--c-hero-p:4/10;--c-svc:span 3;--c-gal:span 4;--c-card:span 4;--c-book-l:1/7;--c-book-r:8/13;
+  --ab-in:calc(var(--h2-l) + var(--h3-l));
+}}
+/* El menú completo necesita ~1000px de ancho útil; por debajo se usa la hamburguesa */
+@media (min-width:1200px){:root{--nav-d:flex;--burger-d:none}}
+@media (min-width:1440px){:root{--sec:120px;--h1-f:72px;--h1-l:80px}}
+
+/* El color de acento se puede cambiar desde el panel (Sitio → Marca); el de
+   :hover se calcula de él. */
+.pagina{--acento-hover:var(--acento);--acento-hover:oklch(from var(--acento) calc(l - 0.08) c h)}
+
+/* ---------- 2. Base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--hdr-h)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;font-family:"Open Sans",sans-serif;color:#000;background:#fff;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,h5,h6,p,figure{margin:0}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+a:hover{text-decoration:underline}
+button{font:inherit}
+
+.pagina{position:relative;overflow-x:clip}
+.contenedor{width:min(calc(100% - 2 * var(--mar)), 1200px);margin-inline:auto}
+.reticula{display:grid;grid-template-columns:repeat(var(--cols), minmax(0,1fr));column-gap:var(--gut);row-gap:var(--rg,0px)}
+.rg-48{--rg:48px}
+.rg-gut{--rg:var(--gut)}
+.seccion{padding-block:var(--sec)}
+.fondo-blanco{background:#fff}
+.fondo-claro{background:#F8F6F4}
+.fondo-oscuro{background:#1a1a1a}
+.fondo-arena{background:#f3efe9}
+.gris{color:var(--gris)}
+.centro{text-align:center}
+
+/* ---------- 3. Tipografía sobre la línea base ----------
+   Cada estilo define --f (tamaño) y --l (interlineado, múltiplo de 8).
+   --k = distancia del centro de línea a la línea base, en em (Open Sans .385 · Cormorant .32).
+   El desplazamiento lleva la línea base a la línea de 8px más cercana (±4px). */
+.t{--k:.385;font-size:var(--f);line-height:var(--l);position:relative;top:calc(4px - mod(var(--l) / 2 + var(--k) * var(--f) + 4px, 8px));text-wrap:pretty}
+.serif{--k:.32;font-family:"Cormorant Garamond",serif;font-weight:700}
+.t-h1{--f:var(--h1-f);--l:var(--h1-l);text-wrap:balance}
+.t-h2{--f:var(--h2-f);--l:var(--h2-l);text-wrap:balance}
+.t-h3{--f:var(--h3-f);--l:var(--h3-l)}
+.t-pt{--f:var(--pt-f);--l:var(--pt-l)}
+.t-pr{--f:var(--pr-f);--l:var(--pr-l)}
+.t-ld{--f:var(--ld-f);--l:var(--ld-l)}
+.t-md{--f:var(--md-f);--l:var(--md-l)}
+.t-sitio{--f:var(--st-f);--l:48px;font-weight:600;white-space:nowrap}
+.t-nav{--f:18px;--l:48px}
+.t-cuerpo{--f:16px;--l:24px}
+.t-18{--f:18px;--l:24px}
+.t-cita{--f:18px;--l:32px}
+.t-chico{--f:14px;--l:24px}
+.t-20{--f:20px;--l:24px}
+.t-pie-foto{--f:13px;--l:24px}
+.t-vineta{--f:12px;--l:24px}
+.t-mini{--f:12px;--l:16px;letter-spacing:2px;text-transform:uppercase}
+.t-icono{--f:24px;--l:var(--md-l)}
+.t-rotulo{--f:14px;--l:24px;letter-spacing:3px;text-transform:uppercase;color:var(--acento)}
+.t-cargo{--f:14px;--l:24px;letter-spacing:2px;text-transform:uppercase;color:var(--acento)}
+.sin-ajuste{top:0}
+
+/* ---------- 4. Botones ---------- */
+.boton{display:block;border-radius:4px;background:var(--acento);color:#fff;font-weight:600;text-decoration:none;transition:background-color .2s}
+.boton:hover{background:var(--acento-hover);text-decoration:none}
+.boton span{display:block;position:relative}
+/* Centrado óptico: mismo espacio del borde superior a la altura de mayúsculas que de la línea base al borde inferior */
+.boton--cabecera{display:var(--hbtn-d);position:relative;top:2.29px;height:48px;padding:0 20px;font-size:16px;line-height:48px}
+.boton--cabecera span{top:-.45px}
+.boton--heroe{position:relative;top:-2.43px;height:56px;padding:0 32px;font-size:18px;line-height:56px;text-transform:uppercase}
+.boton--heroe span{top:-.5px}
+.boton--reserva{margin-top:32px;height:56px;font-size:16px;line-height:56px;letter-spacing:2px;text-transform:uppercase;text-align:center}
+.boton--reserva span{top:-2.16px}
+
+/* ---------- 5. Cabecera fija ---------- */
+.cabecera{position:fixed;top:0;left:0;right:0;z-index:40;padding-block:var(--hdr-p);color:#fff;transition:background-color .3s,box-shadow .3s}
+.cabecera.is-solida{background:rgba(26,26,26,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 1px 0 rgba(255,255,255,.08)}
+.cabecera__fila{display:flex;align-items:center;justify-content:space-between;gap:24px;height:48px}
+.cabecera__sitio a:hover{text-decoration:none}
+.menu{display:var(--nav-d);gap:40px;align-items:center}
+.menu a{text-underline-offset:8px;text-decoration-thickness:1px}
+.menu a[aria-current]{text-decoration:underline;text-decoration-color:var(--acento)}
+.cabecera__acciones{display:flex;align-items:center;gap:8px}
+.hamburguesa{display:var(--burger-d);width:48px;height:48px;align-items:center;justify-content:center;background:none;border:0;padding:0;color:#fff;cursor:pointer}
+
+/* Menú móvil: panel lateral sobre velo; ancho completo en móvil, 480px en tablet */
+.menu-movil{position:fixed;inset:0;z-index:100}
+.menu-movil[hidden]{display:none}
+.menu-movil__velo{position:absolute;inset:0;background:rgba(26,26,26,.56);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);opacity:0;transition:opacity .4s ease}
+.menu-movil__panel{position:absolute;top:0;right:0;bottom:0;width:min(100%, 480px);background:#F8F6F4;color:#000;display:flex;flex-direction:column;padding:var(--hdr-p) var(--mar) var(--mar);overflow-y:auto;transform:translateX(100%);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.menu-movil.is-abierto .menu-movil__velo{opacity:1}
+@media (min-width:600px){.menu-movil__velo{background:rgba(26,26,26,.24);-webkit-backdrop-filter:none;backdrop-filter:none}}
+.menu-movil.is-abierto .menu-movil__panel{transform:none}
+.menu-movil__fila{display:flex;align-items:center;justify-content:space-between;height:48px;margin-right:-12px}
+.menu-movil__cerrar{width:48px;height:48px;background:none;border:0;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#000}
+.menu-movil__lista{list-style:none;margin:48px 0 0;padding:0;border-top:1px solid var(--pleca)}
+.menu-movil__lista li{border-bottom:1px solid var(--pleca);opacity:0;transform:translateX(24px);transition:opacity .4s ease,transform .5s cubic-bezier(.2,.7,.2,1);transition-delay:0s}
+.menu-movil.is-abierto .menu-movil__lista li{opacity:1;transform:none;transition-delay:.12s}
+/* Entrada escalonada de las opciones (antes --i en cada elemento; el menú ahora es editable) */
+.menu-movil.is-abierto .menu-movil__lista li:nth-child(2){transition-delay:0.17s}
+.menu-movil.is-abierto .menu-movil__lista li:nth-child(3){transition-delay:0.22s}
+.menu-movil.is-abierto .menu-movil__lista li:nth-child(4){transition-delay:0.27s}
+.menu-movil.is-abierto .menu-movil__lista li:nth-child(5){transition-delay:0.32s}
+.menu-movil.is-abierto .menu-movil__lista li:nth-child(6){transition-delay:0.37s}
+.menu-movil.is-abierto .menu-movil__lista li:nth-child(7){transition-delay:0.42s}
+.menu-movil.is-abierto .menu-movil__lista li:nth-child(8){transition-delay:0.47s}
+.menu-movil.is-abierto .menu-movil__lista li:nth-child(9){transition-delay:0.52s}
+.menu-movil.is-abierto .menu-movil__lista li:nth-child(10){transition-delay:0.57s}
+
+.menu-movil__lista a{display:flex;align-items:baseline;gap:24px;height:72px;line-height:72px;color:#000;text-decoration:none;transition:color .2s}
+.menu-movil__num{width:24px;font-size:12px;letter-spacing:2px;color:var(--gris)}
+.menu-movil__nombre{font-size:32px;font-weight:600}
+.menu-movil__lista a:hover,.menu-movil__lista a[aria-current]{color:var(--acento);text-decoration:none}
+.menu-movil__lista a[aria-current] .menu-movil__num{color:var(--acento)}
+.menu-movil__pie{margin-top:auto;padding-top:48px;display:grid;gap:24px}
+.menu-movil__pie .boton--reserva{margin-top:0}
+.menu-movil__pie a:not(.boton){color:#000}
+@media (prefers-reduced-motion:reduce){.menu-movil__velo,.menu-movil__panel,.menu-movil__lista li{transition:none}}
+
+/* ---------- 7. Introducción de sección ---------- */
+.intro{grid-column:1/-1;display:grid;grid-template-columns:subgrid;text-align:center;margin-bottom:calc(var(--intro-mb) - var(--rg,0px))}
+.intro > *{grid-column:var(--c-hero-h)}
+.intro > .t-ld{grid-column:var(--c-hero-p)}
+.intro > * + *{margin-top:16px}
+
+/* Listas editables (fotos, equipo, testimonios): el contenedor no cuenta para la retícula */
+.lista-libre{display:contents}
+
+/* ---------- 15. Pie (valores originales del tema) ---------- */
+.pie{background:#2A2A26;padding:4rem 1.5rem 2.5rem}
+.pie__interior{max-width:1200px;margin:0 auto}
+.pie__columnas{display:flex;flex-direction:var(--ft-dir);gap:2.5rem 3rem}
+.pie__col{flex:1 1 0;min-width:0}
+.pie__col--marca{flex:0 0 var(--ft-b1)}
+.pie h3{margin:0 0 1rem;font-family:"Cormorant Garamond",serif;color:#fff;line-height:1.4}
+.pie__marca{font-size:clamp(0.901rem, 0.901rem + ((1vw - 0.2rem) * 0.816), 1.35rem);font-weight:500}
+.pie__titulo{font-size:clamp(0.875rem, 0.875rem + ((1vw - 0.2rem) * 0.045), 0.9rem);font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.pie p{margin:1.5rem 0 0;color:#B8B4A8;font-size:clamp(0.875rem, 0.875rem + ((1vw - 0.2rem) * 0.136), 0.95rem);line-height:1.7}
+.pie p.pie__lista{line-height:1.9}
+.pie a{color:#B8B4A8}
+.pie__pleca{width:100px;height:2px;background:#44443E;margin:3rem auto 1.5rem}
+.pie p.pie__legal{margin:0;color:#8A867C;font-size:.85rem;line-height:150%;text-align:center}
+
+/* ---------- 16. Guía de retícula (tecla G = columnas, B = línea base) ---------- */
+.guia{position:absolute;inset:0;pointer-events:none}
+.guia--cols{z-index:50}
+.guia--cols .contenedor{height:100%;display:grid;grid-template-columns:repeat(var(--cols), minmax(0,1fr));column-gap:var(--gut);overflow:hidden}
+.guia--cols .contenedor > div{background:rgba(255,40,80,.09);box-shadow:inset 1px 0 0 rgba(255,40,80,.35),inset -1px 0 0 rgba(255,40,80,.35)}
+.guia--cols .contenedor > div:nth-child(n+5){display:var(--g8,none)}
+.guia--cols .contenedor > div:nth-child(n+9){display:var(--g12,none)}
+@media (min-width:600px){.guia--cols{--g8:block}}
+@media (min-width:1024px){.guia--cols{--g12:block}}
+.guia--base{z-index:51;mix-blend-mode:multiply;background-image:repeating-linear-gradient(to bottom, rgba(0,150,255,.45) 0 1px, transparent 1px 8px),repeating-linear-gradient(to bottom, rgba(0,150,255,.35) 0 1px, transparent 1px 24px)}
+.guia-etiqueta{position:fixed;left:16px;bottom:16px;z-index:60;padding:0 12px;height:32px;display:flex;align-items:center;border-radius:4px;background:#1a1a1a;color:#fff;font:12px ui-monospace,Menlo,monospace;pointer-events:none}
+.guia[hidden],.guia-etiqueta[hidden]{display:none}

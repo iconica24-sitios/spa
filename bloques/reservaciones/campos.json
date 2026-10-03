@@ -1,0 +1,86 @@
+{
+  "label": "Reservaciones y contacto",
+  "name": "reservaciones",
+  "widget": "object",
+  "summary": "Reservaciones — {{fields.titulo}}",
+  "fields": [
+    {
+      "label": "Título",
+      "name": "titulo",
+      "widget": "string",
+      "default": "Reserva tu espacio"
+    },
+    {
+      "label": "Texto",
+      "name": "texto",
+      "widget": "text",
+      "default": "",
+      "required": false
+    },
+    {
+      "label": "Rótulo de la dirección",
+      "name": "rotulo_direccion",
+      "widget": "string",
+      "default": "Dónde estamos"
+    },
+    {
+      "label": "Rótulo del teléfono",
+      "name": "rotulo_telefono",
+      "widget": "string",
+      "default": "Teléfono"
+    },
+    {
+      "label": "Rótulo del correo",
+      "name": "rotulo_correo",
+      "widget": "string",
+      "default": "Correo"
+    },
+    {
+      "label": "Rótulo de horarios",
+      "name": "rotulo_horarios",
+      "widget": "string",
+      "default": "Horarios"
+    },
+    {
+      "label": "Horarios",
+      "name": "horarios",
+      "widget": "text",
+      "default": "Martes a viernes 10:00 a 20:00",
+      "hint": "Cada renglón se respeta tal cual. Dirección, teléfono y correo se cambian en Sitio → Datos del negocio."
+    },
+    {
+      "label": "Título de la tarjeta",
+      "name": "tarjeta_titulo",
+      "widget": "string",
+      "default": "Pide tu cita"
+    },
+    {
+      "label": "Texto de la tarjeta",
+      "name": "tarjeta_texto",
+      "widget": "text",
+      "default": ""
+    },
+    {
+      "label": "Botón (abre WhatsApp)",
+      "name": "tarjeta_boton",
+      "widget": "string",
+      "default": "Reservar",
+      "pattern": [
+        "^.{1,20}$",
+        "Máximo 20 caracteres"
+      ]
+    },
+    {
+      "label": "Ancla para el menú",
+      "name": "ancla",
+      "widget": "string",
+      "default": "reservaciones",
+      "required": false,
+      "hint": "Sin espacios (p. ej. equipo): el menú la enlaza como #equipo. Vacío = sin ancla.",
+      "pattern": [
+        "^[a-z0-9-]*$",
+        "Sólo minúsculas, números y guiones"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "label": "Equipo",
+  "name": "equipo",
+  "widget": "object",
+  "summary": "Equipo — {{fields.titulo}}",
+  "fields": [
+    {
+      "label": "Rótulo",
+      "name": "rotulo",
+      "widget": "string",
+      "default": "El equipo",
+      "required": false
+    },
+    {
+      "label": "Título",
+      "name": "titulo",
+      "widget": "string",
+      "default": "Quiénes te van a atender"
+    },
+    {
+      "label": "Texto",
+      "name": "texto",
+      "widget": "text",
+      "default": "Una línea sobre el equipo.",
+      "required": false
+    },
+    {
+      "label": "Personas",
+      "name": "personas",
+      "widget": "list",
+      "label_singular": "persona",
+      "summary": "{{fields.nombre}} — {{fields.cargo}}",
+      "default": [],
+      "fields": [
+        {
+          "label": "Foto",
+          "name": "foto",
+          "widget": "image",
+          "required": true,
+          "hint": "Vertical."
+        },
+        {
+          "label": "Nombre",
+          "name": "nombre",
+          "widget": "string",
+          "default": ""
+        },
+        {
+          "label": "Cargo",
+          "name": "cargo",
+          "widget": "string",
+          "default": ""
+        },
+        {
+          "label": "Texto",
+          "name": "texto",
+          "widget": "text",
+          "default": ""
+        }
+      ]
+    },
+    {
+      "label": "Ancla para el menú",
+      "name": "ancla",
+      "widget": "string",
+      "default": "equipo",
+      "required": false,
+      "hint": "Sin espacios (p. ej. equipo): el menú la enlaza como #equipo. Vacío = sin ancla.",
+      "pattern": [
+        "^[a-z0-9-]*$",
+        "Sólo minúsculas, números y guiones"
+      ]
+    }
+  ]
+}

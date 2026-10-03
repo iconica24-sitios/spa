@@ -1,0 +1,47 @@
+{
+  "nombre": "Aura Spa & Wellness",
+  "marca": {
+    "acento": "#d88a6d"
+  },
+  "negocio": {
+    "telefono": "55 1234 5678",
+    "whatsapp": "55 1234 5678",
+    "correo": "hola@auraspa.mx",
+    "direccion": "Circuito Novelistas 112, interior 4\nCiudad Satélite, Naucalpan",
+    "dias": "Martes a domingo · Lunes cerrado"
+  },
+  "menu": [
+    {
+      "texto": "Nosotros",
+      "enlace": "#nosotros"
+    },
+    {
+      "texto": "Espacio",
+      "enlace": "#espacio"
+    },
+    {
+      "texto": "Equipo",
+      "enlace": "#equipo"
+    },
+    {
+      "texto": "Precios",
+      "enlace": "#precios"
+    },
+    {
+      "texto": "Reservaciones",
+      "enlace": "#reservaciones"
+    }
+  ],
+  "boton": {
+    "texto": "Reservar",
+    "texto_movil": "Reservar una cita",
+    "enlace": "#reservaciones"
+  },
+  "pie": {
+    "direccion": "Circuito Novelistas 112, interior 4\nCiudad Satélite, Naucalpan\nNaucalpan, Estado de México",
+    "titulo_horarios": "Horarios",
+    "horarios": "Martes a viernes · 10:00 a 20:00\nSábado · 9:00 a 19:00\nDomingo · 10:00 a 16:00\nLunes · cerrado",
+    "titulo_explora": "Explora",
+    "legal": "© 2026 Aura Spa & Wellness · Sitio de demostración"
+  }
+}

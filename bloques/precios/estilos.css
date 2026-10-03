@@ -1,0 +1,24 @@
+/* ---------- 13. Paquetes ----------
+   Las tarjetas comparten 5 filas (subgrid): encabezado · pleca · precio · lista · botón */
+.paquete{grid-column:var(--c-card);grid-row:span 5;display:grid;grid-template-rows:subgrid;row-gap:0;padding:32px 32px 40px;border-radius:12px;background:#fff}
+.paquete__encabezado{align-self:end}
+.paquete__encabezado h3{margin-bottom:8px}
+.paquete__encabezado p{margin-bottom:24px}
+.paquete__pleca{height:1px;background:var(--pleca);margin-bottom:23px}
+.paquete__precio{margin-bottom:48px}
+.paquete__precio .t-pr{color:var(--oro)}
+.paquete__lista{display:flex;flex-direction:column;gap:8px;align-self:start;list-style:none;margin:0;padding:0}
+.paquete__lista li{display:flex;gap:16px;align-items:flex-start}
+.vineta{color:var(--acento)}
+.paquete__boton{display:block;align-self:end;margin-top:32px;height:56px;border-radius:4px;box-shadow:inset 0 0 0 1px var(--pleca);color:#405861;font-size:13px;line-height:56px;letter-spacing:2px;text-transform:uppercase;text-align:center;transition:box-shadow .2s,background-color .2s}
+.paquete__boton:hover{box-shadow:inset 0 0 0 1px var(--acento);text-decoration:none}
+.paquete__boton span{display:block;position:relative;top:-1.01px}
+.paquete--destacado{background:#1a1a1a;color:#fff}
+.paquete--destacado .gris{color:#ffffffb3}
+.paquete--destacado .paquete__pleca{background:rgba(255,255,255,.15)}
+.paquete--destacado .paquete__boton{background:var(--oro);box-shadow:none;color:#000}
+.paquete--destacado .paquete__boton:hover{background:#c39a6a}
+.etiqueta{display:flex;margin-bottom:16px}
+.etiqueta p{height:24px;padding:0 12px;border-radius:3px;background:var(--oro);color:#000;font-size:11px;line-height:24px;letter-spacing:2px;text-transform:uppercase}
+.etiqueta span{position:relative;top:-.24px}
+
