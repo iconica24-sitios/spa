@@ -1,7 +1,11 @@
 /* Sólo para la vista previa del panel. Ahí no corre JavaScript y el panel es
-   angosto: la cabecera se queda arriba (no fija), con su fondo oscuro, y el
-   menú se muestra en línea para ver lo que se edita en Sitio → Menú. */
+   angosto (se vería la versión de celular, con el menú escondido tras la
+   hamburguesa): la cabecera se queda arriba (no fija), con su fondo oscuro, y
+   el menú se muestra completo en su propio renglón, debajo de la marca y el
+   botón, para ver lo que se edita en Sitio → Menú y Botón. */
 .cabecera { position: relative; background: #1a1a1a; }
-.menu { display: flex !important; flex-wrap: wrap; gap: 8px 20px; }
+.cabecera__fila { flex-wrap: wrap; height: auto; min-height: 48px; row-gap: 12px; }
+.menu { display: flex !important; flex-wrap: wrap; gap: 8px 28px; order: 3; flex-basis: 100%; }
+.boton--cabecera { display: inline-block !important; }
 .hamburguesa, .menu-movil { display: none !important; }
 .heroe__contenido { padding-top: var(--hero-t); }
