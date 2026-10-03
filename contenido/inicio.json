@@ -8,7 +8,7 @@
       "tipo": "portada",
       "imagen": "/imagenes/salon-header-image.webp",
       "titulo": "Este es el demo de un SPA imaginario.",
-      "texto": "Doce años de manos expertas en el corazón de Ciudad Satélite. Un espacio con puerta, silencio y el tiempo que hace falta.",
+      "texto": "En esta subcabeza rematas la promesa básica de la cabeza.",
       "boton": {
         "texto": "Reservar una cita →",
         "enlace": "#reservaciones"
@@ -218,18 +218,18 @@
       "ancla": "precios"
     },
     {
-      "tipo": "reservaciones",
-      "titulo": "Reserva tu espacio",
       "texto": "Abrimos de martes a domingo. Los sábados se llenan con dos semanas de anticipación, así que conviene apartar.",
+      "ancla": "reservaciones",
+      "tarjeta_titulo": "Pide tu cita",
+      "rotulo_horarios": "Horarios",
+      "tarjeta_texto": "Escríbenos por WhatsApp al 55 1234 5678 y cuéntanos qué te pasa. Karla lleva la agenda desde 2017 y suele responder en menos de una hora.",
+      "horarios": "Martes a viernes 10:00 a 20:00\nSábado 9:00 a 19:00 · Domingo 10:00 a 16:00",
       "rotulo_direccion": "Dónde estamos",
       "rotulo_telefono": "Teléfono",
-      "rotulo_correo": "Correo",
-      "rotulo_horarios": "Horarios",
-      "horarios": "Martes a viernes 10:00 a 20:00\nSábado 9:00 a 19:00 · Domingo 10:00 a 16:00",
-      "tarjeta_titulo": "Pide tu cita",
-      "tarjeta_texto": "Escríbenos por WhatsApp al 55 1234 5678 y cuéntanos qué te pasa. Karla lleva la agenda desde 2017 y suele responder en menos de una hora.",
       "tarjeta_boton": "Reservar",
-      "ancla": "reservaciones"
+      "tipo": "reservaciones",
+      "rotulo_correo": "Correo",
+      "titulo": "Reserva tu espacio"
     }
   ]
 }
