@@ -33,7 +33,9 @@
   panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { if (movil.matches) cerrar(); }));
   movil.addEventListener('change', () => { if (!panel.hidden) document.body.style.overflow = movil.matches ? 'hidden' : ''; });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !panel.hidden) { cerrar(); hamburguesa.focus(); } });
-  matchMedia('(min-width:1200px)').addEventListener('change', e => { if (e.matches) cerrar(); });
+  // (addListener: Safari anterior a 14 no tiene addEventListener aquí.)
+  const ancho = matchMedia('(min-width:1200px)'), alCambiar = e => { if (e.matches) cerrar(); };
+  if (ancho.addEventListener) ancho.addEventListener('change', alCambiar); else ancho.addListener(alCambiar);
 
   // Ítem activo del menú según la sección visible
   // Las secciones salen del menú (editable): las opciones #ancla de esta página.

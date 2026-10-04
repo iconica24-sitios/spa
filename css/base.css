@@ -40,7 +40,8 @@
 
 /* El color de acento se puede cambiar desde el panel (Sitio → Marca); el de
    :hover se calcula de él. */
-.pagina{--acento-hover:var(--acento);--acento-hover:oklch(from var(--acento) calc(l - 0.08) c h)}
+.pagina{--acento-hover:var(--acento)}
+@supports (color:oklch(from red l c h)){.pagina{--acento-hover:oklch(from var(--acento) calc(l - 0.08) c h)}}
 
 /* ---------- 2. Base ---------- */
 *,*::before,*::after{box-sizing:border-box}
