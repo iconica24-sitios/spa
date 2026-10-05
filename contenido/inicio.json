@@ -6,7 +6,7 @@
   "bloques": [
     {
       "tipo": "portada",
-      "imagen": "/imagenes/salon-header-image.webp",
+      "imagen": "https://i.pinimg.com/1200x/1f/07/5c/1f075c3dce7f8988b169e4ba4595a330.jpg",
       "titulo": "Este es el demo de un SPA imaginario.",
       "texto": "En esta subcabeza rematas la promesa básica de la cabeza.",
       "boton": {
@@ -14,8 +14,8 @@
         "enlace": "#reservaciones"
       },
       "ancla": "inicio",
-      "tono": "claro",
-      "velo": true
+      "tono": "oscuro",
+      "velo": false
     },
     {
       "tipo": "servicios",
