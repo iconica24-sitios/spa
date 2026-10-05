@@ -15,7 +15,7 @@
       },
       "ancla": "inicio",
       "tono": "claro",
-      "velo": false
+      "velo": true
     },
     {
       "tipo": "servicios",
