@@ -1,4 +1,4 @@
-/* Plantilla "Spa" de GraphicaWeb — base: retícula, tipografía, botones,
+/* Plantilla "Spa" de Icónica24 — base: retícula, tipografía, botones,
    cabecera, menú móvil y pie. Los estilos de cada bloque están en
    bloques/<tipo>/estilos.css (el build los junta en css/bloques.css).
    Aura Spa & Wellness — estilos
@@ -110,14 +110,13 @@ button{font:inherit}
 /* ---------- 5. Cabecera fija ---------- */
 .cabecera{position:fixed;top:0;left:0;right:0;z-index:40;padding-block:var(--hdr-p);color:#fff;transition:background-color .3s,box-shadow .3s}
 .cabecera.is-solida{background:rgba(26,26,26,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 1px 0 rgba(255,255,255,.08)}
-.cabecera--oscura:not(.is-solida){color:#1a1a1a}
 .cabecera__fila{display:flex;align-items:center;justify-content:space-between;gap:24px;height:48px}
 .cabecera__sitio a:hover{text-decoration:none}
 .menu{display:var(--nav-d);gap:40px;align-items:center}
 .menu a{text-underline-offset:8px;text-decoration-thickness:1px}
 .menu a[aria-current]{text-decoration:underline;text-decoration-color:var(--acento)}
 .cabecera__acciones{display:flex;align-items:center;gap:8px}
-.hamburguesa{display:var(--burger-d);width:48px;height:48px;align-items:center;justify-content:center;background:none;border:0;padding:0;color:inherit;cursor:pointer}
+.hamburguesa{display:var(--burger-d);width:48px;height:48px;align-items:center;justify-content:center;background:none;border:0;padding:0;color:#fff;cursor:pointer}
 
 /* Menú móvil: panel lateral sobre velo; ancho completo en móvil, 480px en tablet */
 .menu-movil{position:fixed;inset:0;z-index:100}

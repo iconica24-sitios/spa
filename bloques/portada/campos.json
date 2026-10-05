@@ -9,33 +9,7 @@
       "name": "imagen",
       "widget": "image",
       "required": false,
-      "hint": "Horizontal, 1920 px de ancho o más. Elige abajo el color del texto según la foto."
-    },
-    {
-      "label": "Color del texto",
-      "name": "tono",
-      "widget": "select",
-      "default": "claro",
-      "options": [
-        {
-          "label": "Claro (para fotos oscuras)",
-          "value": "claro"
-        },
-        {
-          "label": "Oscuro (para fotos claras)",
-          "value": "oscuro"
-        }
-      ],
-      "hint": "Para que el título y la cabecera se lean sobre la foto.",
-      "required": false
-    },
-    {
-      "label": "Velo sobre la foto",
-      "name": "velo",
-      "widget": "boolean",
-      "default": false,
-      "required": false,
-      "hint": "Oscurece la foto (o la aclara, con texto oscuro) cuando tiene mucho detalle y el texto no se lee."
+      "hint": "Horizontal, 1920 px de ancho o más. Se oscurece para que el texto se lea."
     },
     {
       "label": "Título",
