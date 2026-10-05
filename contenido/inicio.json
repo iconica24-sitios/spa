@@ -13,7 +13,9 @@
         "texto": "Reservar una cita →",
         "enlace": "#reservaciones"
       },
-      "ancla": "inicio"
+      "ancla": "inicio",
+      "tono": "claro",
+      "velo": false
     },
     {
       "tipo": "servicios",
