@@ -1,7 +1,11 @@
 (() => {
   const cabecera = document.querySelector('.cabecera');
 
-  // Cabecera: transparente sobre el héroe, sólida al desplazarse
+  // Cabecera: transparente sobre el héroe, sólida al desplazarse. Si la
+  // portada tiene texto oscuro (foto clara), la cabecera también, mientras
+  // esté transparente.
+  const primero = document.querySelector('main > :first-child');
+  if (primero && primero.classList.contains('heroe--oscuro')) cabecera.classList.add('cabecera--oscura');
   const alDesplazar = () => cabecera.classList.toggle('is-solida', window.scrollY > 8);
 
   // Menú móvil
