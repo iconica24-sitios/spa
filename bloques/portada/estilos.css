@@ -2,7 +2,7 @@
 /* La foto es una <img> (editable desde el panel) detrás del contenido, con el mismo velo de 60 % */
 .heroe{position:relative;isolation:isolate;background:#1a1a1a;color:#fff}
 .heroe__fondo{position:absolute;inset:0;z-index:-1;width:100%;height:100%;object-fit:cover;object-position:center}
-.heroe::after{content:"";position:absolute;inset:0;z-index:-1;background:none}
+.heroe::after{content:"";position:absolute;inset:0;z-index:-1;background:rgba(0,0,0,.6)}
 .heroe__contenido{padding:calc(var(--hdr-h) + var(--hero-t)) 0 var(--hero-b);text-align:center}
 .heroe__titulo{grid-column:var(--c-hero-h)}
 .heroe__texto{grid-column:var(--c-hero-p);margin-top:16px;color:rgba(255,255,255,.7)}
