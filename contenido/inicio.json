@@ -151,7 +151,8 @@
           "foto": "/imagenes/salon-customer-3.webp"
         }
       ],
-      "ancla": ""
+      "ancla": "",
+      "oculto": true
     },
     {
       "tipo": "precios",
