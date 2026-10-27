@@ -127,7 +127,7 @@
         "enlace": "#precios"
       },
       "descripcion": "Jarrones de piedra con flores secas, toallas y aceite junto a la ventana",
-      "imagen": "/imagenes/spa-flores.webp",
+      "imagen": "/imagenes/spa-flores2.webp",
       "tipo": "imagen_texto",
       "titulo": "De la reserva al descanso. Agenda tu cita en línea o por WhatsApp.",
       "imagen_derecha": false,
@@ -307,6 +307,12 @@
       "enviado_titulo": "Mensaje listo.",
       "ancla": "contacto",
       "whatsapp": "525633668185",
+      "formulario": {
+        "nombre": "Nombre",
+        "correo": "Correo",
+        "mensaje": "Mensaje",
+        "nota": "Campos obligatorios"
+      },
       "enviado_texto": "Se abrió tu aplicación de correo con el mensaje: sólo falta darle Enviar.",
       "tipo": "contacto",
       "whatsapp_texto": "Escríbenos por WhatsApp",
