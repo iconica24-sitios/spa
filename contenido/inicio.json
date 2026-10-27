@@ -194,6 +194,47 @@
       "ancla": ""
     },
     {
+      "tipo": "funciones_3",
+      "oculto": false,
+      "rotulo": "Funciones",
+      "titulo": "Cada función, con su imagen.",
+      "texto": "Resume en una o dos líneas lo que muestran las tarjetas.",
+      "tarjetas": [
+        {
+          "imagen": "",
+          "categoria": "Categoría",
+          "titulo": "Función principal",
+          "texto": "Describe el beneficio concreto, no la tecnología detrás.",
+          "enlace": {
+            "texto": "Saber más",
+            "url": "#"
+          }
+        },
+        {
+          "imagen": "",
+          "categoria": "Categoría",
+          "titulo": "Segunda función",
+          "texto": "Una o dos líneas bastan para explicarla.",
+          "enlace": {
+            "texto": "Saber más",
+            "url": "#"
+          }
+        },
+        {
+          "imagen": "",
+          "categoria": "Categoría",
+          "titulo": "Tercera función",
+          "texto": "Cierra con lo que reduce el riesgo de empezar.",
+          "enlace": {
+            "texto": "Saber más",
+            "url": "#"
+          }
+        }
+      ],
+      "fondo_suave": false,
+      "ancla": ""
+    },
+    {
       "tipo": "precios",
       "fondo_suave": true,
       "titulo": "Nuestros Precios",
@@ -280,7 +321,8 @@
           "valor": "Calle Ejemplo 123, Ciudad"
         }
       ],
-      "correo_destino": "hola@nombre.com"
+      "correo_destino": "hola@nombre.com",
+      "fondo_suave": false
     }
   ]
 }
