@@ -148,6 +148,14 @@ const editableAqui = ruta => {
 };
 // Elemento editable (en este formulario) más cercano.
 const editableDe = el => {
+  // Un campo de formulario sin ruta propia (sin texto de ayuda editable) va a
+  // la de su etiqueta, no a la del bloque.
+  const campo = el && el.closest && el.closest('input, textarea, select');
+  if (campo && !campo.hasAttribute('data-ruta')) {
+    const etiqueta = campo.closest('label');
+    const deEtiqueta = etiqueta && etiqueta.querySelector('[data-ruta]');
+    if (deEtiqueta) el = deEtiqueta;
+  }
   const e = el && el.closest('[data-ruta]');
   return e && editableAqui(e.getAttribute('data-ruta')) ? e : null;
 };
