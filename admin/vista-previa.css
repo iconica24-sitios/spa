@@ -1,0 +1,13 @@
+/* Sólo para la vista previa del panel. La cabecera responde al ancho de la
+   vista previa como en un navegador: angosta, con hamburguesa (el panel la
+   abre y la cierra, aunque aquí no corre el JavaScript del sitio); ancha,
+   con el menú de escritorio. */
+/* La cabecera no se queda pegada arriba: taparía lo que se está editando. */
+.cabecera { position: relative; }
+.portada { margin-top: 0; }
+/* Submenús: se comportan como en el sitio (se abren al pasar el cursor).
+   Mientras se edita una opción de un submenú, el panel marca sus
+   contenedores con .cms-camino y el submenú se queda abierto. */
+.cms-camino > .submenu { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+.menu__item.cms-camino > .menu__flecha { transform: translateY(1px) rotate(225deg); opacity: 1; }
+.submenu__item.cms-camino > a { background: var(--suave); }

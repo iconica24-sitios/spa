@@ -1,0 +1,151 @@
+{
+  "label": "Contacto Estilo 1",
+  "name": "contacto",
+  "widget": "object",
+  "summary": "{{fields.titulo}}",
+  "fields": [
+    {
+      "label": "Título",
+      "name": "titulo",
+      "widget": "string",
+      "default": "Hablemos."
+    },
+    {
+      "label": "Texto",
+      "name": "texto",
+      "widget": "text",
+      "required": false,
+      "default": "Cuéntanos qué necesitas y te respondemos en menos de 24 horas."
+    },
+    {
+      "label": "Datos de contacto",
+      "name": "datos",
+      "widget": "list",
+      "summary": "{{fields.etiqueta}}: {{fields.valor}}",
+      "default": [
+        {
+          "icono": "mail",
+          "etiqueta": "Correo",
+          "valor": "hola@tunegocio.com"
+        },
+        {
+          "icono": "location_on",
+          "etiqueta": "Oficina",
+          "valor": "Calle Ejemplo 123, Ciudad"
+        }
+      ],
+      "fields": [
+        {
+          "label": "Icono",
+          "name": "icono",
+          "widget": "string",
+          "required": false,
+          "default": "",
+          "hint": "Nombre del icono de Material Symbols (fonts.google.com/icons), en inglés y con guion bajo: p. ej. speed, lock, support_agent. Vacío = sin icono."
+        },
+        {
+          "label": "Posición del icono",
+          "name": "posicion",
+          "widget": "select",
+          "required": false,
+          "default": "centrado",
+          "options": [
+            {
+              "label": "Centrado",
+              "value": "centrado"
+            },
+            {
+              "label": "Subir",
+              "value": "subir"
+            },
+            {
+              "label": "Bajar",
+              "value": "bajar"
+            }
+          ],
+          "hint": "Si el icono se ve alto o bajo dentro de su círculo, súbelo o bájalo un poco."
+        },
+        {
+          "label": "Etiqueta",
+          "name": "etiqueta",
+          "widget": "string",
+          "hint": "Ej. Correo, Teléfono, Oficina"
+        },
+        {
+          "label": "Valor",
+          "name": "valor",
+          "widget": "string",
+          "hint": "Formato: [texto del enlace](mailto:hola@…) para que sea clicable"
+        }
+      ]
+    },
+    {
+      "label": "Correo que recibe los mensajes",
+      "name": "correo_destino",
+      "widget": "string",
+      "default": "",
+      "hint": "A dónde llegan los mensajes. Por ahora el formulario abre la aplicación de correo de quien escribe, con el mensaje listo.",
+      "pattern": [
+        "^([^@\\s]+@[^@\\s]+\\.[^@\\s]+)?$",
+        "Escribe un correo válido"
+      ]
+    },
+    {
+      "label": "Texto del botón",
+      "name": "boton",
+      "widget": "string",
+      "default": "Enviar mensaje"
+    },
+    {
+      "label": "Mensaje al enviar: título",
+      "name": "enviado_titulo",
+      "widget": "string",
+      "default": "Mensaje listo."
+    },
+    {
+      "label": "Mensaje al enviar: texto",
+      "name": "enviado_texto",
+      "widget": "string",
+      "default": "Se abrió tu aplicación de correo con el mensaje: sólo falta darle Enviar."
+    },
+    {
+      "label": "WhatsApp: número",
+      "name": "whatsapp",
+      "widget": "string",
+      "required": false,
+      "default": "",
+      "hint": "Con código de país, sin «+» ni espacios (p. ej. 5215512345678). Vacío = sin botón de WhatsApp.",
+      "pattern": [
+        "^[0-9]*$",
+        "Sólo números, con el código de país"
+      ]
+    },
+    {
+      "label": "WhatsApp: texto del botón",
+      "name": "whatsapp_texto",
+      "widget": "string",
+      "required": false,
+      "default": "Escríbenos por WhatsApp"
+    },
+    {
+      "label": "Fondo gris suave",
+      "name": "fondo_suave",
+      "widget": "boolean",
+      "default": true,
+      "required": false,
+      "hint": "Sin marcar, el bloque va con el fondo de la página."
+    },
+    {
+      "label": "Ancla para el menú",
+      "name": "ancla",
+      "widget": "string",
+      "required": false,
+      "default": "contacto",
+      "hint": "Sin espacios (p. ej. precios): el menú la enlaza como #precios. Vacío = sin ancla.",
+      "pattern": [
+        "^[a-z0-9-]*$",
+        "Sólo minúsculas, números y guiones"
+      ]
+    }
+  ]
+}

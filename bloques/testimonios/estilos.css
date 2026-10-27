@@ -1,0 +1,18 @@
+/* Testimonios: citas en rejilla, separadas por filetes */
+.testimonios { max-width: 1200px; margin: 0 auto; padding: 112px var(--margen); width: 100%; }
+.testimonios__rejilla {
+  margin-top: 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 1px; background: var(--linea); border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea);
+}
+.testimonios__tarjeta { margin: 0; padding: 40px 32px; background: var(--papel); display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
+.bloque--suave .testimonios__tarjeta { background: var(--suave); }
+.testimonios__cita { margin: 0; font-size: 17px; line-height: 1.7; font-weight: 300; font-style: italic; text-wrap: pretty; }
+.testimonios__autor { display: flex; align-items: center; gap: 14px; }
+.testimonios__foto {
+  width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; overflow: hidden;
+  background: repeating-linear-gradient(135deg, #ece3d6 0 5px, #e2d7c8 5px 10px);
+}
+.testimonios__foto img { width: 100%; height: 100%; object-fit: cover; }
+.testimonios__datos { display: flex; flex-direction: column; gap: 2px; }
+.testimonios__nombre { font-size: 14px; font-weight: 600; }
+.testimonios__cargo { font-size: 13px; color: var(--gris); }

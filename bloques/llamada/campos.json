@@ -1,0 +1,99 @@
+{
+  "label": "Promoción - Oferta",
+  "name": "llamada",
+  "widget": "object",
+  "summary": "{{fields.titulo}}",
+  "fondo": false,
+  "fields": [
+    {
+      "label": "Rótulo",
+      "name": "rotulo",
+      "widget": "string",
+      "required": false,
+      "default": "",
+      "hint": "Texto corto sobre el título. Vacío = sin rótulo."
+    },
+    {
+      "label": "Título",
+      "name": "titulo",
+      "widget": "string",
+      "default": "Una invitación final, directa y breve."
+    },
+    {
+      "label": "Texto",
+      "name": "texto",
+      "widget": "text",
+      "required": false,
+      "default": "Una o dos líneas que resuman por qué dar el paso ahora y qué obtiene el cliente al hacerlo.",
+      "hint": "Formato: `**negritas**` · `==resaltado==` · `[texto del enlace](https://…)`"
+    },
+    {
+      "label": "Botón principal",
+      "name": "boton",
+      "widget": "object",
+      "fields": [
+        {
+          "label": "Texto",
+          "name": "texto",
+          "widget": "string",
+          "required": false,
+          "default": "Empezar",
+          "hint": "Vacío = sin botón."
+        },
+        {
+          "label": "Enlace",
+          "name": "enlace",
+          "widget": "string",
+          "required": false,
+          "default": "#contacto",
+          "hint": "#ancla, /pagina o https://…"
+        }
+      ],
+      "collapsed": true
+    },
+    {
+      "label": "Botón secundario",
+      "name": "boton2",
+      "widget": "object",
+      "collapsed": true,
+      "fields": [
+        {
+          "label": "Texto",
+          "name": "texto",
+          "widget": "string",
+          "required": false,
+          "default": "Hablar con nosotros",
+          "hint": "Vacío = sin botón."
+        },
+        {
+          "label": "Enlace",
+          "name": "enlace",
+          "widget": "string",
+          "required": false,
+          "default": "#contacto",
+          "hint": "#ancla de una sección, /pagina o https://…"
+        }
+      ]
+    },
+    {
+      "label": "Nota",
+      "name": "nota",
+      "widget": "string",
+      "required": false,
+      "default": "Una nota breve para resolver la última duda: condiciones, plazos o garantía.",
+      "hint": "Vacío = sin nota. Formato: `**negritas**` · `==resaltado==` · `[texto del enlace](https://…)`"
+    },
+    {
+      "label": "Ancla para el menú",
+      "name": "ancla",
+      "widget": "string",
+      "required": false,
+      "default": "",
+      "hint": "Sin espacios (p. ej. precios): el menú la enlaza como #precios. Vacío = sin ancla.",
+      "pattern": [
+        "^[a-z0-9-]*$",
+        "Sólo minúsculas, números y guiones"
+      ]
+    }
+  ]
+}

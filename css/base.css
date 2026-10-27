@@ -1,0 +1,261 @@
+/* =========================================================================
+   Base de la plantilla «pre-plantilla-spa-01»: colores, tipografía, botones
+   (y botones fundidos), cabecera con menú (y su versión móvil) y pie.
+   Los estilos de cada bloque están en bloques/<tipo>/estilos.css; el build
+   los junta en css/bloques.css.
+   ========================================================================= */
+
+:root {
+  --papel: #fff9f1;        /* fondo de la página (crema) */
+  --suave: #e0d7c8;        /* fondo suave (beige) */
+  --blanco: #ffffff;
+  --tinta: #161211;        /* texto y botón principal */
+  --gris: #5e554d;         /* texto secundario */
+  --gris-claro: #82786f;
+  --linea: #d8cdc0;        /* filetes */
+  --linea-fuerte: #c2b6a8; /* contornos de campos y tarjetas */
+  --acento: #c2683a;       /* terracota: rótulos, iconos y detalles */
+  --radio-boton: 8px;      /* esquinas de botones, controles y tarjetas */
+  --radio-campo: 8px;      /* esquinas de campos de formulario */
+  --margen: 20px;          /* margen lateral del contenido */
+  --alto-cabecera: 76px;
+}
+@media (min-width: 640px) { :root { --margen: 32px; } }
+/* El color de acento se puede cambiar desde el panel (Sitio → Marca); la
+   versión oscura para :hover se calcula de él. */
+.sitio {
+  --acento-fuerte: var(--acento);
+  --acento-tenue: var(--suave);
+}
+@supports (color: oklch(from red l c h)) {
+  .sitio { --acento-fuerte: oklch(from var(--acento) calc(l - 0.08) c h); --acento-tenue: oklch(from var(--acento) 0.95 calc(c * 0.25) h); }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--alto-cabecera); }
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: 'Open Sans', system-ui, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: var(--tinta); text-decoration: none; }
+a:hover { color: var(--acento); }
+input, textarea, button { font-family: inherit; }
+input::placeholder, textarea::placeholder { color: #9a8f85; opacity: 1; }
+strong { font-weight: 700; }
+
+.sitio { min-height: 100vh; display: flex; flex-direction: column; }
+
+/* Rayado que ocupa el lugar de una imagen mientras no hay foto */
+.rayado { background: repeating-linear-gradient(135deg, #ece3d6 0 12px, #e5dbcd 12px 24px); }
+
+/* ---------- Fondo de los bloques (casilla "Fondo gris suave" del panel) ----------
+   El sistema pone bloque--suave o bloque--papel en la sección; sin elegir, cada
+   bloque queda con su fondo de siempre. "section." para ganarle a la regla del bloque. */
+section.bloque--suave { background: var(--suave); border-top: 0; }
+section.bloque--papel { background: var(--papel); }
+
+/* ---------- Encabezado de sección (rótulo, título, texto) ---------- */
+.encabezado { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.rotulo { margin: 0 0 14px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--acento); }
+.titulo-seccion { margin: 0; font-size: clamp(24px, 1.2vw + 18px, 30px); line-height: 1.45; letter-spacing: -0.01em; font-weight: 400; text-wrap: balance; }
+.texto-seccion { margin: 18px 0 0; font-size: 17px; line-height: 1.75; font-weight: 400; color: var(--tinta); text-wrap: pretty; }
+
+/* ---------- Iconos (Material Symbols Rounded, peso 200, Google Fonts) ----------
+   El nombre del icono es el texto del elemento (p. ej. "spa"); la fuente lo dibuja
+   sin JavaScript. Ancho fijo y overflow para que el nombre no asome mientras carga. */
+.icono {
+  font-family: 'Material Symbols Rounded'; font-weight: normal; font-style: normal;
+  font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none;
+  display: inline-block; width: 1em; height: 1em; overflow: hidden; white-space: nowrap; direction: ltr;
+  -webkit-font-feature-settings: 'liga'; font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased;
+}
+/* Posición del icono (campo del editor): algunos dibujos se ven altos o bajos;
+   se mueven 1/10 de su tamaño. */
+.icono--subir { translate: 0 -0.1em; }
+.icono--bajar { translate: 0 0.1em; }
+
+/* ---------- Botones ---------- */
+.boton {
+  display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; line-height: 1.3;
+  padding: 15px 28px; border-radius: var(--radio-boton); border: 1px solid transparent; text-align: center;
+  transition: background-color .2s, color .2s, border-color .2s;
+}
+.boton--chico { font-size: 13px; padding: 9px 16px; white-space: nowrap; }
+.boton--tinta { background: var(--tinta); border-color: var(--tinta); color: var(--blanco); }
+.boton--tinta:hover { background: var(--acento); border-color: var(--acento); color: var(--blanco); }
+.boton--acento { background: var(--acento); border-color: var(--acento); color: var(--blanco); }
+.boton--acento:hover { background: var(--acento-fuerte); border-color: var(--acento-fuerte); color: var(--blanco); }
+.boton--blanco { background: var(--blanco); border-color: var(--linea-fuerte); color: var(--tinta); }
+.boton--blanco:hover { border-color: var(--tinta); color: var(--tinta); }
+.boton--borde { background: transparent; border-color: var(--linea-fuerte); color: var(--tinta); }
+.boton--borde:hover { border-color: var(--tinta); color: var(--tinta); }
+
+/* Botones fundidos: varios botones juntos forman una sola pieza, del mismo ancho
+   (el del texto más largo). Sólo el primero y el último llevan esquinas redondeadas.
+   En celular van uno sobre otro, a todo el ancho, también fundidos.
+   Depende de que un botón sin texto se quite del HTML (data-cms-if). */
+.botonera { display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 0; max-width: 100%; }
+.botonera > .boton { border-radius: 0; min-width: 190px; }
+.botonera > .boton:first-child { border-top-left-radius: var(--radio-boton); border-bottom-left-radius: var(--radio-boton); }
+.botonera > .boton:last-child { border-top-right-radius: var(--radio-boton); border-bottom-right-radius: var(--radio-boton); }
+.botonera > .boton + .boton { margin-left: -1px; }
+@media (max-width: 639px) {
+  .botonera { display: grid; grid-auto-flow: row; width: 100%; }
+  .botonera > .boton { min-width: 0; }
+  .botonera > .boton:first-child { border-radius: var(--radio-boton) var(--radio-boton) 0 0; }
+  .botonera > .boton:last-child { border-radius: 0 0 var(--radio-boton) var(--radio-boton); }
+  .botonera > .boton:only-child { border-radius: var(--radio-boton); }
+  .botonera > .boton + .boton { margin-left: 0; margin-top: -1px; }
+}
+
+/* WhatsApp: verde de marca, con su icono; mismo alto que los demás botones */
+.boton-whatsapp {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  background: #1fa855; border-color: #1fa855; color: #ffffff; line-height: 1.2; text-align: center;
+}
+.boton-whatsapp:hover { background: #178f47; border-color: #178f47; color: #ffffff; }
+.boton-whatsapp__icono { flex: none; }
+
+/* ---------- Cabecera ---------- */
+.cabecera {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(255, 249, 241, 0.94);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.cabecera__fila {
+  max-width: 1200px; margin: 0 auto; padding: 16px var(--margen); min-height: var(--alto-cabecera);
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.marca { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px; letter-spacing: 0.02em; color: var(--tinta); }
+.marca:hover { color: var(--tinta); }
+.marca__cuadro { display: none; }
+.menu { display: flex; gap: 36px; font-size: 13px; font-weight: 400; letter-spacing: 0.01em; margin-left: auto; margin-right: 12px; }
+.menu a, .menu-movil__lista a { transition: color .2s; }
+/* Submenús (escritorio): se abren al pasar el cursor o con el teclado (solo CSS).
+   Nivel 2 baja del elemento; nivel 3 sale a la derecha. */
+.menu__item { position: relative; display: flex; align-items: center; gap: 6px; }
+.menu__item > a { padding: 8px 0; }
+.menu__flecha, .submenu__flecha {
+  width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+  opacity: .5; transition: transform .25s ease, opacity .2s;
+}
+.menu__flecha { transform: translateY(-2px) rotate(45deg); }
+.menu__item:hover > .menu__flecha, .menu__item:focus-within > .menu__flecha { transform: translateY(1px) rotate(225deg); opacity: 1; }
+.submenu {
+  position: absolute; top: 100%; left: -14px; z-index: 5; padding-top: 10px;
+  opacity: 0; visibility: hidden; transform: translateY(6px);
+  transition: opacity .2s ease, transform .25s ease, visibility 0s linear .25s;
+}
+.submenu--n3 { top: -7px; left: 100%; padding: 0 0 0 8px; transform: translateX(-6px); }
+.menu__item:hover > .submenu, .menu__item:focus-within > .submenu,
+.submenu__item:hover > .submenu, .submenu__item:focus-within > .submenu {
+  opacity: 1; visibility: visible; transform: none; transition-delay: 0s;
+}
+.submenu__lista {
+  min-width: 220px; padding: 6px; display: flex; flex-direction: column;
+  background: var(--papel); border: 1px solid var(--linea); border-radius: var(--radio-boton);
+  box-shadow: 0 12px 32px -12px rgba(22, 18, 17, 0.18);
+}
+.submenu__item { position: relative; display: flex; align-items: center; }
+.submenu__item > a { flex: 1; padding: 10px 36px 10px 12px; border-radius: 4px; font-size: 13px; color: var(--tinta); transition: background-color .2s, color .2s; }
+.submenu__item:hover > a, .submenu__item:focus-within > a { background: var(--suave); }
+.submenu__flecha { position: absolute; right: 14px; transform: rotate(-45deg); pointer-events: none; }
+.submenu__item:hover > .submenu__flecha { opacity: 1; }
+/* El último elemento abre hacia la izquierda para no salirse de la pantalla */
+.menu__item:last-child > .submenu { left: auto; right: -14px; }
+.menu__item:last-child .submenu--n3 { left: auto; right: 100%; padding: 0 8px 0 0; }
+.menu a[aria-current], .menu-movil__lista a[aria-current] { color: var(--acento); }
+.cabecera__acciones { display: flex; flex-shrink: 0; gap: 12px; align-items: center; }
+
+.hamburguesa {
+  display: none; width: 44px; height: 44px; margin-right: -10px; border: none; background: transparent; cursor: pointer;
+  flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+}
+.hamburguesa span { width: 22px; height: 1.5px; border-radius: 2px; background: var(--tinta); transition: transform .2s, opacity .2s; }
+.cabecera.is-abierta .hamburguesa span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.cabecera.is-abierta .hamburguesa span:nth-child(2) { opacity: 0; }
+.cabecera.is-abierta .hamburguesa span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Menú móvil: se despliega bajo la cabecera, encima de la página (si la
+   empujara, al cerrarse todo se recorrería y el enlace elegido quedaría fuera). */
+.menu-movil {
+  position: absolute; top: 100%; left: 0; right: 0;
+  display: none; grid-template-rows: 0fr; opacity: 0; pointer-events: none;
+  transition: grid-template-rows .35s ease, opacity .25s ease;
+}
+.cabecera.is-abierta .menu-movil { grid-template-rows: 1fr; opacity: 1; pointer-events: auto; }
+.menu-movil__recorte { min-height: 0; overflow: hidden; }
+.menu-movil__panel {
+  border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); padding: 8px var(--margen) 28px;
+  display: flex; flex-direction: column; background: var(--papel);
+}
+.menu-movil__lista { display: flex; flex-direction: column; font-size: 18px; font-weight: 300; }
+.menu-movil__panel { max-height: calc(100vh - var(--alto-cabecera)); max-height: calc(100svh - var(--alto-cabecera)); overflow-y: auto; }
+/* En pantalla ancha (menú compacto) las opciones arrancan donde arranca la marca:
+   mismo ancho máximo y margen que .cabecera__fila (1200px y --margen). */
+.menu-movil__panel { padding-inline: max(var(--margen), calc(50% - 600px + var(--margen))); }
+.menu-movil__fila { display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--linea); }
+.menu-movil__fila a { flex: 1; padding: 16px 0; }
+.menu-movil__item--n2 .menu-movil__fila a { padding: 13px 0 13px 16px; font-size: 16px; }
+.menu-movil__item--n3 .menu-movil__fila a { padding: 11px 0 11px 32px; font-size: 15px; color: var(--gris); }
+.menu-movil__abrir {
+  flex: none; width: 44px; height: 44px; margin-right: -12px; border: none; background: transparent; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; color: var(--tinta);
+}
+.menu-movil__abrir[hidden] { display: none; }
+.menu-movil__abrir span {
+  width: 8px; height: 8px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg); transition: transform .3s ease;
+}
+.menu-movil__item.is-abierto > .menu-movil__fila .menu-movil__abrir span { transform: translateY(2px) rotate(225deg); }
+/* Sin JavaScript los submenús se ven abiertos; con JavaScript se pliegan y despliegan */
+.menu-movil__sub { display: grid; grid-template-rows: 1fr; transition: grid-template-rows .35s ease, opacity .3s ease; }
+.menu-movil__sub-recorte { min-height: 0; overflow: hidden; display: flex; flex-direction: column; }
+.con-js .menu-movil__sub { grid-template-rows: 0fr; opacity: 0; }
+.con-js .menu-movil__item.is-abierto > .menu-movil__sub { grid-template-rows: 1fr; opacity: 1; }
+@media (hover: hover) and (pointer: fine) {
+  .menu-movil__item:hover > .menu-movil__sub { grid-template-rows: 1fr; opacity: 1; }
+  .menu-movil__item:hover > .menu-movil__fila .menu-movil__abrir span { transform: translateY(2px) rotate(225deg); }
+}
+.menu-movil__boton { margin-top: 24px; text-align: center; padding: 15px 20px; }
+
+@media (max-width: 767px) {
+  .menu, .cabecera__acciones { display: none; }
+  .hamburguesa { display: flex; }
+  .menu-movil { display: grid; }
+}
+
+/* Menú compacto: si las opciones del menú no caben en el renglón de la
+   cabecera (js/sitio.js lo mide; en el panel, la vista previa), se usa la
+   hamburguesa también en pantalla ancha. Mientras se mide, nada se encoge. */
+.cabecera.menu-compacto .menu, .cabecera.menu-compacto .cabecera__acciones { display: none; }
+.cabecera.menu-compacto .hamburguesa { display: flex; }
+.cabecera.menu-compacto .menu-movil { display: grid; }
+.cabecera.menu-midiendo .cabecera__fila > * { flex-shrink: 0; }
+.cabecera.menu-midiendo .menu { margin-left: 0; }
+.cabecera.menu-midiendo .menu a { white-space: nowrap; }
+
+/* ---------- Pie ---------- */
+/* Celular: marca, aviso legal y redes centrados, uno sobre otro.
+   Desde 640px: marca | aviso legal a la izquierda y redes a la derecha. */
+.pie { border-top: 1px solid var(--linea); }
+.pie__fila {
+  max-width: 1200px; margin: 0 auto; padding: 40px var(--margen);
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+  font-size: 13px; color: var(--gris); text-align: center;
+}
+.marca--pie { order: 1; }
+.pie__legal { order: 2; }
+.pie__redes { order: 3; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.pie__red { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; color: var(--gris); }
+.pie__red:hover { color: var(--tinta); background: var(--suave); }
+@media (min-width: 640px) {
+  .pie__fila { flex-direction: row; flex-wrap: wrap; gap: 16px; text-align: left; }
+  .pie__legal { padding: 6px 0 6px 16px; border-left: 1px solid var(--linea-fuerte); }
+  .pie__redes { margin-left: auto; margin-right: -10px; justify-content: flex-end; }
+}

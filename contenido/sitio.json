@@ -1,0 +1,45 @@
+{
+  "nombre": "LOGO",
+  "marca": {
+    "acento": "#c2683a"
+  },
+  "menu": [
+    {
+      "texto": "Funciones",
+      "enlace": "#beneficios"
+    },
+    {
+      "texto": "Producto",
+      "enlace": "#producto"
+    },
+    {
+      "texto": "Precios",
+      "enlace": "#precios"
+    },
+    {
+      "texto": "Contacto",
+      "enlace": "#contacto"
+    }
+  ],
+  "boton": {
+    "texto": "Comprar este sitio",
+    "enlace": "https://grfkweb.com/index.html#precios"
+  },
+  "pie": {
+    "redes": [
+      {
+        "red": "facebook",
+        "url": "https://www.facebook.com/"
+      },
+      {
+        "red": "instagram",
+        "url": "https://www.instagram.com/"
+      },
+      {
+        "red": "linkedin",
+        "url": "https://www.linkedin.com/"
+      }
+    ],
+    "legal": "© 2026 Nombre"
+  }
+}

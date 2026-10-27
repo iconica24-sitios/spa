@@ -1,0 +1,90 @@
+{
+  "label": "Portada A",
+  "name": "portada_2",
+  "widget": "object",
+  "summary": "{{fields.titulo}}",
+  "fondo": false,
+  "fields": [
+    {
+      "label": "Imagen",
+      "name": "imagen",
+      "widget": "image",
+      "required": false,
+      "default": "/imagenes/spa-portada.webp",
+      "hint": "Foto horizontal, de al menos 1600 px de ancho."
+    },
+    {
+      "label": "Descripción de la imagen",
+      "name": "imagen_alt",
+      "widget": "string",
+      "required": false,
+      "default": "Masaje facial con toalla blanca en la cabeza",
+      "hint": "Para lectores de pantalla y Google: qué se ve en la foto."
+    },
+    {
+      "label": "Título",
+      "name": "titulo",
+      "widget": "string",
+      "default": "Un buen masaje te cambia el mundo…"
+    },
+    {
+      "label": "Botón principal",
+      "name": "boton",
+      "widget": "object",
+      "collapsed": true,
+      "fields": [
+        {
+          "label": "Texto",
+          "name": "texto",
+          "widget": "string",
+          "required": false,
+          "default": "Agendar cita",
+          "hint": "Vacío = sin botones."
+        },
+        {
+          "label": "Enlace",
+          "name": "enlace",
+          "widget": "string",
+          "required": false,
+          "default": "#contacto"
+        }
+      ]
+    },
+    {
+      "label": "Botón secundario",
+      "name": "boton2",
+      "widget": "object",
+      "collapsed": true,
+      "required": false,
+      "fields": [
+        {
+          "label": "Texto",
+          "name": "texto",
+          "widget": "string",
+          "required": false,
+          "default": "Ver tratamientos",
+          "hint": "Vacío = sin segundo botón."
+        },
+        {
+          "label": "Enlace",
+          "name": "enlace",
+          "widget": "string",
+          "required": false,
+          "default": "#funciones"
+        }
+      ]
+    },
+    {
+      "label": "Ancla para el menú",
+      "name": "ancla",
+      "widget": "string",
+      "required": false,
+      "default": "",
+      "hint": "Sin espacios (p. ej. precios): el menú la enlaza como #precios. Vacío = sin ancla.",
+      "pattern": [
+        "^[a-z0-9-]*$",
+        "Sólo minúsculas, números y guiones"
+      ]
+    }
+  ]
+}

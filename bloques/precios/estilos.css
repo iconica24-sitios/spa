@@ -1,0 +1,58 @@
+/* Precios: planes en tarjetas de filete; el destacado va en tinta. Si hay precio
+   anual, un selector Mensual/Anual cambia las cifras (js/sitio.js). */
+.precios__interior { max-width: 1200px; margin: 0 auto; padding: 112px var(--margen); }
+.precios__cabeza { display: flex; justify-content: space-between; align-items: end; gap: 32px; flex-wrap: wrap; }
+@media (min-width: 768px) { .precios__cabeza { flex-direction: column; align-items: center; text-align: center; gap: 32px; } }
+.precios__intro { max-width: 600px; }
+.precios__texto { margin: 18px 0 0; font-size: 17px; line-height: 1.75; color: var(--tinta); }
+.precios__periodos { display: flex; padding: 3px; border-radius: var(--radio-boton); background: var(--suave); gap: 3px; }
+.precios__periodo {
+  font-size: 13px; font-weight: 600; padding: 9px 18px; border-radius: 5px; border: none; cursor: pointer;
+  background: transparent; color: var(--tinta); box-shadow: none;
+}
+.precios__periodo[aria-pressed="true"] { background: var(--blanco); box-shadow: 0 1px 2px rgba(22, 18, 17, 0.12); }
+.precios__planes { margin-top: 64px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px; align-items: stretch; }
+
+.plan { padding: 36px 32px; border-radius: calc(var(--radio-boton) * 2); /* el doble que su botón: la tarjeta se ve más redonda que lo que contiene */ display: flex; flex-direction: column; background-color: var(--papel); color: var(--tinta); border: 1px solid var(--linea-fuerte); }
+.plan--destacado { background: var(--tinta); color: var(--blanco); border-color: var(--tinta); }
+.plan__cabeza { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.plan__nombre { margin: 0; font-size: 17px; font-weight: 400; }
+/* Insignia: pestaña rectangular que cuelga del borde superior de la tarjeta (sube lo mismo
+   que el relleno superior del plan); su texto cae a la altura del nombre del plan. */
+.plan__insignia {
+  flex: none; margin-top: -37px; padding: 45px 14px 12px; border-radius: 0; /* -37 = relleno (36) + borde (1) de la tarjeta */
+  font-size: 11px; font-weight: 700; letter-spacing: 0.04em; line-height: 1.2; text-transform: uppercase;
+  background: var(--acento); color: var(--blanco);
+}
+.plan__precio { margin-top: 24px; display: flex; align-items: baseline; gap: 6px; }
+.plan__cifra { font-size: 44px; font-weight: 300; letter-spacing: -0.03em; line-height: 1; }
+.plan__cifra--anual { display: none; }
+.precios--anual .plan__cifra--anual { display: inline; }
+.precios--anual .plan--con-anual .plan__cifra--mensual { display: none; }
+.plan__periodo { font-size: 13px; color: var(--gris); }
+.plan--destacado .plan__periodo { color: #b3aaa2; }
+.plan__descripcion { margin: 14px 0 0; font-size: 14px; line-height: 1.55; color: var(--gris); }
+.plan--destacado .plan__descripcion { color: #c4bbb3; }
+.plan__incluye { margin: 28px 0 32px; display: flex; flex-direction: column; flex: 1; border-top: 1px solid var(--linea); }
+.plan--destacado .plan__incluye { border-color: rgba(255, 255, 255, 0.18); }
+.plan__punto { display: flex; gap: 12px; align-items: center; padding: 11px 0; font-size: 14px; border-bottom: 1px solid var(--linea); }
+.plan--destacado .plan__punto { border-color: rgba(255, 255, 255, 0.18); }
+.plan__vineta { width: 5px; height: 5px; border-radius: 50%; background: var(--acento); flex-shrink: 0; }
+.plan__boton {
+  text-align: center; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; padding: 15px 20px; border-radius: var(--radio-boton);
+  background: var(--tinta); color: var(--blanco); border: 1px solid var(--tinta); transition: background-color .2s, border-color .2s;
+}
+.plan__boton:hover { background: var(--acento); border-color: var(--acento); color: var(--blanco); }
+.plan--destacado .plan__boton { background: var(--blanco); color: var(--tinta); border-color: var(--blanco); }
+.plan--destacado .plan__boton:hover { background: var(--acento); border-color: var(--acento); color: var(--blanco); }
+/* Filas compartidas: nombre, precio, descripción, lista y botón se alinean entre
+   tarjetas de la misma fila aunque un nombre o una descripción ocupe más líneas.
+   Navegadores sin subgrid conservan el diseño en columna de arriba. */
+@supports (grid-template-rows: subgrid) {
+  .precios__planes { row-gap: 0; margin-bottom: -24px; }
+  .plan { display: grid; grid-row: span 5; grid-template-rows: subgrid; row-gap: 0; margin-bottom: 24px; }
+  .plan__cabeza { align-self: start; }
+  .plan__boton { align-self: end; }
+}
+/* Sobre fondo suave, el selector Mensual/Anual pasa al color de la página para seguir viéndose. */
+.bloque--suave .precios__periodos { background: var(--papel); }

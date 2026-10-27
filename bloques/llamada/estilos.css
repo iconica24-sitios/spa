@@ -1,0 +1,17 @@
+/* Llamada a la acción: franja beige a todo el ancho (fondo propio, sin casilla);
+   rótulo opcional, título, texto, botones fundidos y nota, centrados. */
+.llamada { background: var(--suave); color: var(--tinta); padding: 104px var(--margen); }
+.llamada__caja { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.llamada__titulo { margin: 0; font-size: clamp(24px, 1.2vw + 18px, 30px); line-height: 1.45; letter-spacing: -0.01em; font-weight: 400; text-wrap: balance; }
+.llamada__texto { margin: 18px 0 0; font-size: 17px; line-height: 1.75; color: var(--tinta); text-wrap: pretty; }
+.llamada__botones { margin-top: 36px; }
+.llamada__boton { background: var(--tinta); border-color: var(--tinta); color: var(--blanco); }
+.llamada__boton:hover { background: var(--acento); border-color: var(--acento); color: var(--blanco); }
+.llamada__boton2 { background: var(--blanco); border-color: var(--blanco); color: var(--tinta); }
+.llamada__boton2:hover { background: var(--papel); color: var(--tinta); }
+.llamada__nota { margin: 24px 0 0; font-size: 13px; line-height: 1.5; color: var(--gris); text-wrap: pretty; }
+.llamada__nota strong { color: var(--tinta); font-weight: 600; }
+@media (max-width: 639px) {
+  .llamada { padding: 80px var(--margen); }
+  .llamada__botones { margin-top: 32px; }
+}

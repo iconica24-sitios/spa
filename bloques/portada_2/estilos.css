@@ -1,0 +1,62 @@
+/* Portada 2: imagen a sangre con el título blanco dentro de un recuadro de filete blanco,
+   centrado abajo. Desde 640px los botones (fundidos) van sobre la imagen; en celular bajan,
+   uno sobre otro y a todo el ancho. Tiene fondo propio (la imagen): no lleva la casilla de fondo. */
+.portada-2 { position: relative; --portada-2-botones: 0px; }
+.portada-2__marco { position: relative; overflow: hidden; height: 125vw; min-height: 380px; max-height: calc(100vh - var(--alto-cabecera)); max-height: calc(100svh - var(--alto-cabecera)); display: flex; flex-direction: column; justify-content: flex-end; }
+.portada-2__imagen { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+/* Velo suave abajo para que el título blanco se lea sobre cualquier foto */
+.portada-2__marco::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 55%; pointer-events: none; background: linear-gradient(to bottom, rgba(22, 18, 17, 0), rgba(22, 18, 17, 0.28)); }
+.portada-2__texto { position: relative; z-index: 1; flex-shrink: 0; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 var(--margen); display: flex; justify-content: center; padding-bottom: calc(28px + var(--portada-2-botones)); }
+.portada-2__titulo {
+  margin: 0; max-width: 100%; padding: 14px; overflow-wrap: break-word; /* relleno igual en los cuatro lados */
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  font-size: clamp(24px, 2.6vw + 14px, 40px); line-height: 1.2; letter-spacing: -0.01em; font-weight: 300;
+  color: var(--blanco); text-align: center; text-wrap: balance;
+}
+.portada-2__botones { padding: 28px var(--margen) 32px; background: var(--suave); display: grid; }
+@media (min-width: 640px) {
+  .portada-2 { --portada-2-botones: 88px; } /* alto de los botones (≈48) + 40 de aire sobre ellos */
+  /* El marco mide siempre el alto de la ventana menos la cabecera (mínimo 360px): todo el
+     bloque entra en pantalla, como en beautyskin-6b.
+     Encuadre del rostro: la foto (2000×1506) cubre el marco; si la ventana es baja, sube hasta
+     que la barbilla (y 73 % de la foto) libra el título (--reserva: lo que ocupan, desde abajo,
+     botones y título). Se sacrifica la toalla, nunca la frente (y 30 %): si no caben las dos
+     cosas, gana la frente. */
+  .portada-2 { --reserva: 276px; }
+  .portada-2__marco {
+    --m: max(360px, calc(100vh - var(--alto-cabecera)));
+    /* Ancho: cubre el marco y, además, es lo bastante grande para que lo que hay bajo la barbilla
+       (27 % de la foto) alcance a cubrir la reserva sin dejar hueco abajo. */
+    --iw: max(100vw, calc(var(--m) * 1.328), calc(var(--reserva) * 4.92));
+    --ih: calc(var(--iw) * 0.753);
+    height: var(--m); max-height: none; min-height: 0;
+  }
+  @supports (height: 100svh) {
+    .portada-2__marco { --m: max(360px, calc(100svh - var(--alto-cabecera))); }
+  }
+  .portada-2__imagen {
+    inset: auto; left: 50%; width: var(--iw); height: var(--ih); max-width: none; transform: translateX(-50%);
+    /* Prioridad: 1) la foto siempre cubre el marco (nunca queda hueco abajo); 2) la frente no se
+       corta; 3) la barbilla queda sobre el título. */
+    top: min(0px, max(calc(var(--m) - var(--ih)), calc(var(--ih) * -0.30), min(calc((var(--m) - var(--ih)) * 0.3), calc(var(--m) - var(--reserva) - var(--ih) * 0.73))));
+  }
+  .portada-2__texto { padding-bottom: calc(48px + var(--portada-2-botones)); }
+  .portada-2__titulo { padding: 20px; }
+  .portada-2__botones {
+    position: absolute; left: 50%; bottom: 56px; z-index: 1; transform: translateX(-50%); padding: 0; background: none;
+    display: inline-grid; width: max-content; max-width: calc(100% - 2 * var(--margen));
+  }
+  .portada-2__botones .boton--blanco { border-color: var(--blanco); }
+}
+/* Desde 1024px el título cabe en una línea: la reserva es menor */
+@media (min-width: 1024px) { .portada-2 { --reserva: 236px; } }
+/* Ventana baja: título y botones más compactos para que el rostro quepa encima */
+@media (min-width: 640px) and (max-height: 760px) {
+  .portada-2 { --portada-2-botones: 80px; --reserva: 248px; }
+  .portada-2__texto { padding-bottom: calc(32px + var(--portada-2-botones)); }
+  .portada-2__titulo { font-size: clamp(22px, 1.6vw + 12px, 32px); padding: 16px; }
+  .portada-2__botones { bottom: 40px; }
+}
+@media (min-width: 1024px) and (max-height: 760px) { .portada-2 { --reserva: 212px; } }
+/* Sin botones, el título baja hasta el margen inferior */
+.portada-2__marco:last-child .portada-2__texto { padding-bottom: 48px; }

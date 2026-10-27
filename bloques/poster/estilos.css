@@ -1,0 +1,42 @@
+/* Póster: foto a sangre con el encabezado arriba y notas numeradas (I., II., …) a uno y
+   otro lado, cada una sobre una línea guía que llega hasta el objeto de la foto.
+   La foto se dibuja en un lienzo con la proporción de la imagen (1400×2498); las notas se
+   colocan en ese lienzo: «altura» (0–100) es el % del alto de la imagen donde cae la línea.
+   --u es el ancho de referencia (la pantalla, hasta 1200px); el lienzo mide 1.15 × --u de
+   ancho y se recorta arriba (15 % de la imagen) y abajo.
+   En celular la foto va bajo el encabezado y las notas, en lista, debajo de la foto.
+   Tiene fondo propio (la imagen): no lleva la casilla de fondo. */
+.poster { position: relative; overflow: hidden; background: #e2d2c0; color: var(--tinta); --u: min(100vw, 1200px); }
+.poster__encabezado { position: relative; z-index: 1; padding: 96px var(--margen) 48px; }
+.poster__lienzo { position: relative; }
+.poster__imagen { display: block; width: 100%; height: 120vw; object-fit: cover; object-position: 50% 52%; }
+/* Celular: sin foto; sólo encabezado y notas */
+@media (max-width: 767px) { .poster__imagen { display: none; } }
+.poster__notas { margin: 0; padding: 40px var(--margen) 72px; list-style: none; counter-reset: nota; display: flex; flex-direction: column; background: #ebe6df; /* tono del piso de la foto; tapa el rayado del lienzo */ }
+.poster__nota { padding: 14px 0; border-bottom: 1px solid var(--linea-fuerte); font-size: 14px; line-height: 1.5; }
+.poster__nota::before { counter-increment: nota; content: counter(nota, upper-roman) ".\00a0 "; }
+@media (min-width: 768px) {
+  .poster { height: calc(var(--u) * 1.24); min-height: 900px; }
+  .poster__encabezado { padding-top: 112px; }
+  .poster__lienzo {
+    position: absolute; left: 50%; top: calc(var(--u) * -0.306);
+    width: calc(var(--u) * 1.15); height: calc(var(--u) * 2.052);
+    transform: translateX(-50%);
+  }
+  .poster__imagen { position: absolute; inset: 0; height: 100%; object-position: 50% 50%; }
+  .poster__notas { position: absolute; inset: 0; padding: 0; display: block; background: none; }
+  /* Cada nota: línea guía de 36 % del lienzo, desde el centro hacia afuera; el texto,
+     en la parte de afuera de la línea. */
+  .poster__nota {
+    position: absolute; top: calc(var(--alto, 50) * 1%); left: 50%; width: 36%;
+    border-bottom-color: rgba(22, 18, 17, 0.55); /* línea guía sobre la foto: más marcada */
+    transform: translateY(-100%); padding: 0 0 8px 11%; display: flex;
+    font-size: 13px; line-height: 1.45;
+  }
+  .poster__nota::before { flex: none; }
+  .poster__nota--izquierda { left: auto; right: 50%; padding-left: 1%; padding-right: 11%; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .poster__encabezado .titulo-seccion { font-size: 26px; }
+  .poster__encabezado .texto-seccion { font-size: 15px; }
+}

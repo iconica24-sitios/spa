@@ -1,0 +1,50 @@
+/* Contacto: formulario en tarjeta a la izquierda e información a la derecha (desde 768px);
+   en celular, formulario arriba e información abajo. Fondo suave por defecto (casilla marcada). */
+.contacto { background: var(--suave); }
+.contacto__rejilla { max-width: 1200px; margin: 0 auto; padding: 96px var(--margen); display: flex; flex-direction: column; gap: 56px; }
+@media (min-width: 640px) { .contacto__rejilla { padding: 112px var(--margen); } }
+.contacto__form, .contacto__enviado {
+  padding: 28px 24px; border-radius: var(--radio-boton); background: var(--papel);
+  display: flex; flex-direction: column;
+}
+.contacto__form { gap: 20px; }
+@media (min-width: 640px) { .contacto__form, .contacto__enviado { padding: 44px 40px; } }
+.contacto__campo { display: flex; flex-direction: column; gap: 8px; }
+.contacto__etiqueta-campo { font-size: 13px; font-weight: 600; color: var(--tinta); }
+.contacto__obligatorio { color: var(--acento); }
+.contacto input, .contacto textarea {
+  width: 100%; font-size: 15px; padding: 13px 16px; border-radius: var(--radio-campo); border: 1px solid var(--linea-fuerte);
+  background: var(--papel); outline: none; color: var(--tinta); transition: border-color .2s ease, box-shadow .2s ease;
+}
+.contacto input:focus, .contacto textarea:focus { border-color: var(--acento); box-shadow: 0 0 0 3px rgba(194, 104, 58, 0.12); }
+.contacto textarea { resize: vertical; min-height: 120px; }
+.contacto__nota { margin: 0; font-size: 13px; color: var(--gris); }
+.contacto__boton, .contacto__whatsapp { width: 100%; min-height: 52px; border-radius: var(--radio-boton); line-height: 1.2; }
+.contacto__boton {
+  margin-top: auto; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; padding: 15px 28px;
+  border: none; cursor: pointer; background: var(--tinta); color: var(--blanco); transition: background-color .2s;
+}
+.contacto__boton:hover { background: var(--acento); }
+.contacto__enviado { gap: 12px; justify-content: center; }
+.contacto__enviado[hidden] { display: none; }
+.contacto__enviado h3 { margin: 0; font-size: 24px; font-weight: 300; }
+.contacto__enviado p { margin: 0; font-size: 15px; color: var(--gris); }
+.contacto__info { display: flex; flex-direction: column; align-items: flex-start; }
+.contacto__titulo { text-wrap: balance; }
+.contacto__texto { margin: 18px 0 0; font-size: 17px; line-height: 1.75; color: var(--tinta); max-width: 520px; text-wrap: pretty; }
+.contacto__datos { align-self: stretch; margin-top: 36px; display: flex; flex-direction: column; border-top: 1px solid var(--linea-fuerte); }
+.contacto__dato { display: flex; align-items: center; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--linea-fuerte); }
+.contacto__icono { flex: none; width: 32px; height: 32px; color: var(--acento); display: flex; align-items: center; justify-content: center; }
+.contacto__icono .icono { font-size: 28px; }
+.contacto__dato-texto { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.contacto__etiqueta { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--acento); }
+.contacto__valor { font-size: 16px; line-height: 1.45; color: var(--tinta); overflow-wrap: anywhere; }
+.contacto__whatsapp { margin-top: 36px; }
+@media (min-width: 768px) {
+  .contacto__rejilla { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: clamp(32px, 6vw, 80px); align-items: stretch; }
+  .contacto__form, .contacto__enviado { grid-column: 1; grid-row: 1; }
+  .contacto__info { grid-column: 2; grid-row: 1; padding-bottom: 40px; }
+  .contacto__whatsapp { margin-top: auto; }
+  .contacto__datos { margin-bottom: 36px; }
+}
+.bloque--papel .contacto__form, .bloque--papel .contacto__enviado { background: var(--suave); }

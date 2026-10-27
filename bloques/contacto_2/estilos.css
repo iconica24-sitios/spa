@@ -1,0 +1,39 @@
+/* Contacto 2: todo centrado en una columna. Formulario con etiquetas arriba (nombre y correo
+   lado a lado, también en celular), filete y debajo correo, dirección y redes. */
+.contacto-2__interior { max-width: 1200px; margin: 0 auto; padding: 112px var(--margen); }
+.contacto-2__cuerpo { max-width: 600px; margin: 56px auto 0; }
+.contacto-2__form { display: flex; flex-direction: column; gap: 20px; }
+.contacto-2__fila { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (min-width: 640px) { .contacto-2__fila { gap: 20px; } }
+.contacto-2__campo { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.contacto-2__etiqueta { font-size: 13px; font-weight: 600; color: var(--tinta); }
+.contacto-2 input, .contacto-2 textarea {
+  width: 100%; font-size: 15px; padding: 12px 14px; border-radius: var(--radio-campo);
+  border: 1px solid var(--linea-fuerte); background: var(--blanco); color: var(--tinta); outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.contacto-2 input:focus, .contacto-2 textarea:focus { border-color: var(--acento); box-shadow: 0 0 0 3px rgba(194, 104, 58, 0.12); }
+.contacto-2 textarea { min-height: 140px; resize: vertical; }
+.contacto-2__boton { cursor: pointer; }
+/* Botones: fundidos; apilados a todo el ancho en celular, centrados desde 640px */
+.contacto-2__botones { margin-top: 20px; justify-self: center; }
+@media (min-width: 640px) { .contacto-2__botones { margin-left: auto; margin-right: auto; } }
+.contacto-2__enviado {
+  padding: 48px 32px; border-radius: var(--radio-boton); background: var(--suave);
+  display: flex; flex-direction: column; gap: 12px; text-align: center;
+}
+.bloque--suave .contacto-2__enviado { background: var(--papel); }
+.contacto-2__enviado[hidden] { display: none; }
+.contacto-2__enviado h3 { margin: 0; font-size: 24px; font-weight: 300; }
+.contacto-2__enviado p { margin: 0; font-size: 15px; color: var(--gris); }
+.contacto-2__datos {
+  margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--linea);
+  display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center;
+}
+.contacto-2__correo { font-size: 15px; font-weight: 600; color: var(--tinta); overflow-wrap: anywhere; }
+.contacto-2__correo:hover { color: var(--acento); }
+.contacto-2__direccion { margin: 0; font-size: 15px; line-height: 1.6; color: var(--gris); white-space: pre-line; }
+.contacto-2__redes { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px; }
+.contacto-2__red { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; color: var(--gris); }
+.contacto-2__red:hover { color: var(--tinta); background: var(--suave); }
+.bloque--suave .contacto-2__red:hover { background: var(--papel); }
