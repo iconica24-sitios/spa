@@ -8,7 +8,7 @@
 @media (min-width: 1000px) { .funciones-3__rejilla { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .funciones-3__tarjeta {
   display: flex; flex-direction: column; background: var(--blanco);
-  border: 1px solid var(--linea); border-radius: calc(var(--radio-boton)); overflow: hidden;
+  border: 1px solid var(--linea); border-radius: calc(var(--radio-boton) * 2); overflow: hidden;
   transition: border-color .2s ease, box-shadow .25s ease;
 }
 .funciones-3__tarjeta:hover { border-color: var(--linea-fuerte); box-shadow: 0 12px 32px -16px rgba(22, 18, 17, 0.18); }

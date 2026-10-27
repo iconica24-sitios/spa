@@ -25,6 +25,10 @@
   }
   .poster__imagen { position: absolute; inset: 0; height: 100%; object-position: 50% 50%; }
   .poster__notas { position: absolute; inset: 0; padding: 0; display: block; background: none; }
+  /* Las notas cubren la foto: los clics la atraviesan salvo sobre el texto de cada nota
+     (así, en el panel, un clic en la foto abre su campo). */
+  .poster__notas { pointer-events: none; }
+  .poster__nota-texto { pointer-events: auto; }
   /* Cada nota: línea guía de 36 % del lienzo, desde el centro hacia afuera; el texto,
      en la parte de afuera de la línea. */
   .poster__nota {
