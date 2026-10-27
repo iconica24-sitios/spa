@@ -110,52 +110,52 @@
       "ancla": ""
     },
     {
-      "tipo": "imagen_texto",
-      "imagen": "/imagenes/spa-flores.webp",
-      "descripcion": "Jarrones de piedra con flores secas, toallas y aceite junto a la ventana",
-      "imagen_derecha": false,
-      "fondo_suave": false,
       "rotulo": "Beneficios",
-      "titulo": "De la reserva al descanso. Agenda tu cita en línea o por WhatsApp.",
       "texto": "Elige el ritual que buscas. Nosotros preparamos todo antes de tu llegada. Si no sabes cuál te conviene, lo platicamos y decidimos juntos.",
+      "boton": {
+        "texto": "",
+        "enlace": "#contacto"
+      },
       "pasos": [
         "**Reserva tu lugar.** Elige el ritual, día y hora desde aquí.",
         "**Nos preparamos.** Dejamos listo el espacio, los aceites y la temperatura.",
         "**Llegas y te desconectas.** Lo demás corre por nuestra cuenta."
       ],
-      "boton": {
-        "texto": "",
-        "enlace": "#contacto"
-      },
+      "ancla": "producto",
       "boton2": {
         "texto": "",
         "enlace": "#precios"
       },
-      "ancla": "producto"
+      "descripcion": "Jarrones de piedra con flores secas, toallas y aceite junto a la ventana",
+      "imagen": "/imagenes/spa-flores.webp",
+      "tipo": "imagen_texto",
+      "titulo": "De la reserva al descanso. Agenda tu cita en línea o por WhatsApp.",
+      "imagen_derecha": false,
+      "fondo_suave": false
     },
     {
-      "tipo": "imagen_texto",
-      "imagen": "/imagenes/spa-banca.webp",
-      "descripcion": "Banca de madera con un cuenco humeante y toallas de lino",
-      "imagen_derecha": true,
-      "fondo_suave": true,
       "rotulo": "Beneficios",
-      "titulo": "De la reserva al descanso. Agenda tu cita en línea o por WhatsApp.",
       "texto": "Elige el ritual que buscas. Nosotros preparamos todo antes de tu llegada. Si no sabes cuál te conviene, lo platicamos y decidimos juntos.",
+      "boton": {
+        "texto": "",
+        "enlace": "#contacto"
+      },
       "pasos": [
         "**Reserva tu lugar.** Elige el ritual, día y hora desde aquí.",
         "**Nos preparamos.** Dejamos listo el espacio, los aceites y la temperatura.",
         "**Llegas y te desconectas.** Lo demás corre por nuestra cuenta."
       ],
-      "boton": {
-        "texto": "",
-        "enlace": "#contacto"
-      },
+      "ancla": "",
       "boton2": {
         "texto": "",
         "enlace": "#precios"
       },
-      "ancla": ""
+      "descripcion": "Banca de madera con un cuenco humeante y toallas de lino",
+      "imagen": "/imagenes/spa-banca.webp",
+      "tipo": "imagen_texto",
+      "titulo": "De la reserva al descanso. Agenda tu cita en línea o por WhatsApp.",
+      "imagen_derecha": true,
+      "fondo_suave": false
     },
     {
       "tipo": "poster",
@@ -202,68 +202,74 @@
       "etiqueta_anual": "",
       "planes": [
         {
-          "nombre": "Masaje Individual",
-          "destacado": false,
-          "insignia": "",
+          "boton": {
+            "texto": "Agendar Sesión",
+            "enlace": "#contacto"
+          },
           "precio": "$699",
-          "precio_anual": "",
-          "periodo": "MXN",
+          "destacado": false,
+          "nombre": "Masaje Individual",
           "descripcion": "Una sesión de 60 minutos, a tu ritmo.",
+          "periodo": "MXN",
           "incluye": [
             "Ritual a elegir",
             "Aceites esenciales incluidos",
             "Té de bienvenida"
           ],
-          "boton": {
-            "texto": "Agendar Sesión",
-            "enlace": "#contacto"
-          }
+          "insignia": "",
+          "precio_anual": ""
         },
         {
-          "nombre": "Paquete 5 Sesiones",
-          "destacado": true,
-          "insignia": "Más solicitado",
+          "boton": {
+            "texto": "Quiero este Plan",
+            "enlace": "#contacto"
+          },
           "precio": "$2,990",
-          "precio_anual": "",
-          "periodo": "MXN",
+          "destacado": true,
+          "nombre": "Paquete 5 Sesiones",
           "descripcion": "Para hacer del descanso una costumbre.",
+          "periodo": "MXN",
           "incluye": [
             "5 sesiones de 60 minutos",
             "Combina rituales",
             "Vigencia de 6 meses",
             "Reagenda sin costo"
           ],
-          "boton": {
-            "texto": "Quiero este Plan",
-            "enlace": "#contacto"
-          }
+          "insignia": "Más solicitado",
+          "precio_anual": ""
         },
         {
-          "nombre": "Ritual en Pareja",
-          "destacado": false,
-          "insignia": "",
+          "boton": {
+            "texto": "Habla con nosotros",
+            "enlace": "#contacto"
+          },
           "precio": "$4,900",
-          "precio_anual": "",
-          "periodo": "MXN",
+          "destacado": false,
+          "nombre": "Ritual en Pareja",
           "descripcion": "Dos terapeutas, una misma sala.",
+          "periodo": "MXN",
           "incluye": [
             "Todo lo del **Masaje Individual**",
             "Sala privada para dos",
             "Infusión y fruta de temporada",
             "90 minutos de sesión"
           ],
-          "boton": {
-            "texto": "Habla con nosotros",
-            "enlace": "#contacto"
-          }
+          "insignia": "",
+          "precio_anual": ""
         }
       ],
       "ancla": "precios"
     },
     {
-      "tipo": "contacto",
-      "titulo": "Agenda tu Cita",
       "texto": "Cuéntanos qué ritual te interesa y te confirmamos tu cita en menos de 24 horas.",
+      "boton": "Enviar mensaje",
+      "enviado_titulo": "Mensaje listo.",
+      "ancla": "contacto",
+      "whatsapp": "",
+      "enviado_texto": "Se abrió tu aplicación de correo con el mensaje: sólo falta darle Enviar.",
+      "tipo": "contacto",
+      "whatsapp_texto": "Escríbenos por WhatsApp",
+      "titulo": "Agenda tu Cita",
       "datos": [
         {
           "etiqueta": "Correo",
@@ -274,13 +280,7 @@
           "valor": "Calle Ejemplo 123, Ciudad"
         }
       ],
-      "correo_destino": "hola@nombre.com",
-      "boton": "Enviar mensaje",
-      "enviado_titulo": "Mensaje listo.",
-      "enviado_texto": "Se abrió tu aplicación de correo con el mensaje: sólo falta darle Enviar.",
-      "whatsapp": "",
-      "whatsapp_texto": "Escríbenos por WhatsApp",
-      "ancla": "contacto"
+      "correo_destino": "hola@nombre.com"
     }
   ]
 }
