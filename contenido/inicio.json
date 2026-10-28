@@ -196,8 +196,8 @@
     {
       "tipo": "funciones_3",
       "oculto": false,
-      "rotulo": "Funciones",
-      "titulo": "Cada función, con su imagen.",
+      "rotulo": "Rituales",
+      "titulo": "Elige como salir de la rutina",
       "texto": "Resume en una o dos líneas lo que muestran las tarjetas.",
       "tarjetas": [
         {
