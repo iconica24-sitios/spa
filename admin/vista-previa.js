@@ -325,6 +325,12 @@ function resaltar(desplazar) {
     objetivo = docVista.querySelector(`[data-ruta="${CSS.escape(r)}"]`);
   }
   if (!objetivo) return reenmarcar();
+  // Si el menú móvil está abierto y lo que se edita no está en él, se cierra
+  // (como en el sitio al tocar fuera): si no, el resaltado quedaría encima.
+  if (menuMovilAbierto && !docVista.querySelector(`.menu-movil [data-ruta="${CSS.escape(objetivo.getAttribute('data-ruta'))}"]`)) {
+    menuMovilAbierto = false;
+    aplicarMenuMovil(docVista);
+  }
   objetivo.classList.add('cms-activo');
   // Los contenedores del elemento llevan .cms-camino: así una plantilla puede
   // dejar abierto (en su admin/vista-previa.css) el submenú o desplegable que
@@ -573,6 +579,12 @@ const vista = (nombre, pagina = nombre) => window.createClass({
           menuMovilAbierto = !menuMovilAbierto;
           aplicarMenuMovil(doc);
           return;
+        }
+        // Un clic fuera del menú móvil abierto lo cierra, como en el sitio (y
+        // el clic sigue: abre el campo de lo que se tocó).
+        if (menuMovilAbierto && !e.target.closest('.menu-movil')) {
+          menuMovilAbierto = false;
+          aplicarMenuMovil(doc);
         }
         // En la vista previa los enlaces no navegan: un clic edita. Tampoco las
         // etiquetas de un formulario activan su campo: el navegador dispararía
