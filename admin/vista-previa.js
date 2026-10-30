@@ -82,6 +82,8 @@ CMS.registerPreviewStyle(`
   html, body { overflow-x: clip; }
   [data-ruta] { cursor: pointer; }
   .cms-vista-sitio [data-ruta]:not([data-ruta^="sitio."]), .cms-vista-pagina [data-ruta^="sitio."] { cursor: auto; }
+  /* En una página, los enlaces del menú y del pie no se editan pero navegan: manita. */
+  .cms-vista-pagina a[href][data-ruta^="sitio."] { cursor: pointer; }
   .cms-marco { position: absolute; z-index: 2147483647; pointer-events: none; box-sizing: border-box;
                border-radius: 6px; transition: top .12s, left .12s, width .12s, height .12s; }
   .cms-marco--activo { border: 2px solid #2f6fed; box-shadow: 0 0 0 4px rgba(47, 111, 237, .2); }
@@ -386,6 +388,35 @@ function irAAncla(doc, ancla) {
   return true;
 }
 
+// Opción activa del menú, como js/sitio.js en el sitio (que aquí no corre):
+// la de la página en la que se está y la de la sección visible (#ancla).
+const enlacesDelMenu = doc => [...doc.querySelectorAll('.menu a, .menu-movil__lista a')];
+function marcarPagina(doc) {
+  const ruta = p => p.replace(/\/index\.html$/, '/').replace(/\/+$/, '') || '/';
+  for (const a of enlacesDelMenu(doc)) {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('/') && !href.includes('#') && ruta(href) === ruta(doc.__pagina || '/')) a.setAttribute('aria-current', 'page');
+  }
+}
+function marcarSeccion(doc, activo) {
+  for (const a of enlacesDelMenu(doc)) {
+    const href = a.getAttribute('href') || '';
+    if (a.getAttribute('aria-current') === 'page' || !/^#[\w-]+$/.test(href)) continue;
+    if (href === '#' + activo) a.setAttribute('aria-current', 'true');
+    else a.removeAttribute('aria-current');
+  }
+}
+function espiar(doc) {
+  if (Date.now() < (doc.__bloqueoEspia || 0)) return;
+  const ver = doc.defaultView;
+  const ids = [...new Set(enlacesDelMenu(doc).map(a => a.getAttribute('href') || '').filter(h => /^#[\w-]+$/.test(h)).map(h => h.slice(1)))].filter(id => doc.getElementById(id));
+  let activo = null;
+  for (const id of ids) if (doc.getElementById(id).getBoundingClientRect().top <= 140) activo = id;
+  const alto = doc.documentElement.scrollHeight;
+  if (ids.length && ver.scrollY > 0 && alto > ver.innerHeight + 200 && ver.innerHeight + ver.scrollY >= alto - 4) activo = ids[ids.length - 1];
+  marcarSeccion(doc, activo);
+}
+
 // Abre otra entrada del editor. Si se está editando una, primero se sale con
 // la flecha de regreso de la barra de Decap (vuelve a la lista de la
 // colección) y después se abre la otra: cambiando sólo la dirección de una
@@ -412,7 +443,11 @@ function navegar(a, doc) {
   if (u.origin !== location.origin) return false;
   const ancla = decodeURIComponent(u.hash.slice(1));
   const misma = (u.pathname.replace(/\/index\.html$/, '/').replace(/\/+$/, '') || '/') === ((doc.__pagina || '/').replace(/\/+$/, '') || '/');
-  if (misma) return irAAncla(doc, ancla) || true;
+  if (misma) {
+    // Se marca de inmediato, sin esperar el desplazamiento (como en el sitio).
+    if (ancla) { doc.__bloqueoEspia = Date.now() + 900; marcarSeccion(doc, ancla); setTimeout(() => espiar(doc), 950); }
+    return irAAncla(doc, ancla) || true;
+  }
   const entrada = entradaDe(u.pathname);
   if (!entrada) return false;
   anclaPendiente = ancla || null;
@@ -567,12 +602,21 @@ const vista = (nombre, pagina = nombre) => window.createClass({
       // cargar, un acordeón que se abre), los recuadros se recolocan.
       doc.defaultView.addEventListener('resize', reenmarcar);
       doc.defaultView.addEventListener('resize', () => medirMenu(doc));
+      let espiaPendiente = false;
+      doc.defaultView.addEventListener('scroll', () => {
+        if (espiaPendiente) return;
+        espiaPendiente = true;
+        doc.defaultView.requestAnimationFrame(() => { espiaPendiente = false; espiar(doc); });
+      }, { passive: true });
       if (doc.fonts) doc.fonts.ready.then(() => medirMenu(doc));
       doc.addEventListener('toggle', () => setTimeout(reenmarcar, 400), true);
       new doc.defaultView.ResizeObserver(reenmarcar).observe(doc.body);
     }
     medirMenu(doc);
     aplicarMenuMovil(doc);
+    // Al redibujarse (cada edición) se pierden las marcas: se vuelven a poner.
+    marcarPagina(doc);
+    espiar(doc);
     bajoMouse = null;
     resaltar(false);
   },
