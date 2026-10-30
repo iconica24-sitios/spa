@@ -12,6 +12,9 @@
   border: 1px solid var(--linea-fuerte); background: var(--blanco); color: var(--tinta); outline: none;
   transition: border-color .2s ease, box-shadow .2s ease;
 }
+/* En pantallas táctiles los campos van a 16px: con menos, Safari (iPhone) amplía la página
+   al tocar un campo y queda espacio de más a los lados. */
+@media (pointer: coarse) { .contacto-2 input, .contacto-2 textarea { font-size: 16px; } }
 .contacto-2 input:focus, .contacto-2 textarea:focus { border-color: var(--acento); box-shadow: 0 0 0 3px rgba(194, 104, 58, 0.12); }
 .contacto-2 textarea { min-height: 140px; resize: vertical; }
 .contacto-2__boton { cursor: pointer; }

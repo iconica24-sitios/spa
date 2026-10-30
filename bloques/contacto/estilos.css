@@ -16,6 +16,9 @@
   width: 100%; font-size: 15px; padding: 13px 16px; border-radius: var(--radio-campo); border: 1px solid var(--linea-fuerte);
   background: var(--papel); outline: none; color: var(--tinta); transition: border-color .2s ease, box-shadow .2s ease;
 }
+/* En pantallas táctiles los campos van a 16px: con menos, Safari (iPhone) amplía la página
+   al tocar un campo y queda espacio de más a los lados. */
+@media (pointer: coarse) { .contacto input, .contacto textarea { font-size: 16px; } }
 .contacto input:focus, .contacto textarea:focus { border-color: var(--acento); box-shadow: 0 0 0 3px rgba(194, 104, 58, 0.12); }
 .contacto textarea { resize: vertical; min-height: 120px; }
 .contacto__nota { margin: 0; font-size: 13px; color: var(--gris); }
