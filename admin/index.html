@@ -40,6 +40,9 @@
             #entrada .aviso:empty { display: none; }
             #entrada .regresar { color: var(--gris); font-size: .92rem; text-decoration: none; }
             #entrada .regresar:hover { color: var(--tinta); }
+            .cms-abriendo #nc-root { visibility: hidden; }
+            .cms-abriendo body::after { content: "Abriendo el editor…"; position: fixed; inset: 0; display: grid; place-items: center;
+                                        background: #f4f5f7; color: #6b6f76; font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
         </style>
     </head>
     <body>
@@ -168,7 +171,16 @@
                 document.addEventListener('visibilitychange', function () {
                     if (document.visibilityState === 'visible' && !sesionVigente()) volverAEntrar('Tu sesión terminó. Vuelve a entrar.');
                 });
+                // Sin destino en la dirección (/admin o /admin#/) se abre directo
+                // «Contenido» (admin/vista-previa.js); mientras, no se ve la lista
+                // de colecciones de Decap.
+                window.ENTRADA_EN_BLANCO = /^#?\/?$/.test(location.hash) && (window.SITIO.paginas || []).indexOf('inicio') !== -1;
+                if (window.ENTRADA_EN_BLANCO) {
+                    document.documentElement.classList.add('cms-abriendo');
+                    setTimeout(function () { document.documentElement.classList.remove('cms-abriendo'); }, 20000);
+                }
                 CMS.init(configuracion);
+                window.dispatchEvent(new Event('cms-arranca'));
             }
             var configuracion = {
                 config: {

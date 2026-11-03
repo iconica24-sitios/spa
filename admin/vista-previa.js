@@ -450,6 +450,23 @@ async function irA(destino) {
   location.hash = destino;
 }
 
+// Al entrar al editor sin destino, «Contenido» (la página de inicio con su
+// vista previa) en lugar de la lista de colecciones de Decap. index.html marca
+// ENTRADA_EN_BLANCO al llamar a CMS.init, que puede ser antes o después de
+// cargar este archivo (con sesión guardada, o al dar «Entrar»).
+async function abrirInicio() {
+  if (!window.ENTRADA_EN_BLANCO) return;
+  window.ENTRADA_EN_BLANCO = false;
+  // Decap listo: sesión aceptada y colecciones en pantalla.
+  if (await esperarA(() => document.querySelector('a[href^="#/collections/"]'), 1200)) {
+    await irA('#/collections/inicio/entries/inicio');
+    await esperarA(() => document.querySelector('[class*="ToolbarSectionMain"]'), 600);
+  }
+  document.documentElement.classList.remove('cms-abriendo');
+}
+if (window.ENTRADA_EN_BLANCO !== undefined) abrirInicio();
+else window.addEventListener('cms-arranca', abrirInicio, { once: true });
+
 // true si el clic en el enlace `a` se resolvió navegando.
 function navegar(a, doc) {
   const href = a.getAttribute('href') || '';
@@ -632,7 +649,10 @@ const vista = (nombre, pagina = nombre) => window.createClass({
       }, { passive: true });
       if (doc.fonts) doc.fonts.ready.then(() => medirMenu(doc));
       doc.addEventListener('toggle', () => setTimeout(reenmarcar, 400), true);
-      new doc.defaultView.ResizeObserver(reenmarcar).observe(doc.body);
+      // El menú se vuelve a medir si cambia el tamaño del contenido: si se midió
+      // antes de que cargaran los estilos de la vista previa, se quedaba en
+      // hamburguesa aunque las opciones cupieran.
+      new doc.defaultView.ResizeObserver(() => { reenmarcar(); medirMenu(doc); }).observe(doc.body);
     }
     medirMenu(doc);
     aplicarMenuMovil(doc);
